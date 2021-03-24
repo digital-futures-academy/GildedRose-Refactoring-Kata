@@ -47,7 +47,7 @@ So I want to create an exception
 ```
 | Objects| Properties| Messages| Context| Output|
 | ------ | --------- | ------- | ------ | ----- |
-| Shop | Boolean | exception()| | True/false|
+| Shop | Boolean | exception()| Quality is 80 and never changes| True/false|
 
 ### User story 5
 ```
@@ -61,3 +61,13 @@ So I want to increase the quality the closer the sellin date is
 | | | | Quality increases by 2 when there are 10 days or less| |
 | | | | 3 when there are 5 days or less| |
 | | | |Quality drops to 0 after the concert | |
+
+### User story 6
+```
+As an inkeeper
+I have signed a supplier of conjured items, which degrade in Quality twice as fast as normal items
+So I want to make a change to the system
+```
+| Objects| Properties| Messages| Context| Output|
+| ------ | --------- | ------- | ------ | ----- |
+| Shop | | conjured(item) | | Int|

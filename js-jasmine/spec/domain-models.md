@@ -37,7 +37,7 @@ So I want to increase the quality of "Aged Brie" the older it gets
 ```
 | Objects| Properties| Messages| Context| Output|
 | ------ | --------- | ------- | ------ | ----- |
-| Shop | | increaseQuality(quality)| | Int | 
+| Shop | Int | increaseQuality(quality)| | Int | 
 
 ### User story 4
 ```
@@ -49,3 +49,15 @@ So I want to create an exception
 | ------ | --------- | ------- | ------ | ----- |
 | Shop | Boolean | exception()| | True/false|
 
+### User story 5
+```
+As an inkeeper 
+I know that backstage passes are more wanted closer to the concert
+So I want to increase the quality the closer the sellin date is
+```
+| Objects| Properties| Messages| Context| Output|
+| ------ | --------- | ------- | ------ | ----- |
+| Shop | Int | increaseQuality(quality)| | Int | 
+| | | | Quality increases by 2 when there are 10 days or less| |
+| | | | 3 when there are 5 days or less| |
+| | | |Quality drops to 0 after the concert | |

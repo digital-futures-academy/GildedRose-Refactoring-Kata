@@ -12,6 +12,18 @@ class Shop {
     this.items = items;
     //Shop takes an array of items as its argument(item is added to the shop when the shop is created)
   }
+
+  lowerValue(){
+    for (var i = 0; i < this.items.length; i++){
+      if(this.items[i].sellIn < 0) {
+        this.items[i].quality -= 1;
+      }
+      this.items[i].quality -= 1;
+      this.items[i].sellIn -= 1;
+    }
+    return this.items;
+  }
+
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       //Loops through array of items in the shop
@@ -78,7 +90,7 @@ class Shop {
         } else {
           //The item is Aged Brie
           if (this.items[i].quality < 50) {
-            //If its quality is more than 50 
+            //If its quality is less than 50 
             this.items[i].quality += 1;
             //Add one to the quality value
           }
@@ -93,3 +105,23 @@ module.exports = {
   Item,
   Shop
 }
+
+// let item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 3)
+// const gildedRose = new Shop([ item ]);
+// const items = gildedRose.updateQuality();
+// console.log(items);
+
+// let item2 = new Item("Aged Brie", 0, 48)
+// const gildedRose2 = new Shop([ item2 ]);
+// const items2 = gildedRose2.updateQuality();
+// console.log(items2);
+
+// let item3 = new Item("Sulfuras, Hand of Ragnaros", 0, 80)
+// const gildedRose3 = new Shop([ item3 ]);
+// const items3 = gildedRose3.updateQuality();
+// console.log(items3);
+
+// let item4 = new Item("Wine", 1, 30)
+// const gildedRose4 = new Shop([ item4 ]);
+// const items4 = gildedRose4.updateQuality();
+// console.log(items4);

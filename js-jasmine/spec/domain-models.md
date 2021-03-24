@@ -15,8 +15,8 @@ I want to keep track of my products quality and sell by day
 
 | Objects| Properties| Messages| Context| Output|
 | ------ | --------- | ------- | ------ | ----- |
-| Item | Int | get quality()| Return quality value| Int|
-|  | Int | get sellIn()| Return number of days left to sell| Int |
+| Item | Int | | Return quality value| Int|
+|  | Int | | Return number of days left to sell| Int |
 | Shop  | Int | lowerValues(quality, sellIn)| At the end of the day lower both values| Int|
 
 ### User story 2

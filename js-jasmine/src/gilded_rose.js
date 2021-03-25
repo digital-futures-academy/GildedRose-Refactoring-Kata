@@ -41,6 +41,15 @@ class Shop {
     }
   }
 
+  conjured(){
+    for (var i = 0; i < this.items.length; i++) {
+      if(this.items[i].name.includes('Conjured')){
+        this.items[i].quality -= 1;
+      }
+      return this.items;
+    }
+  }
+
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       //Loops through array of items in the shop
@@ -123,22 +132,22 @@ module.exports = {
   Shop
 }
 
-// let item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 3)
-// const gildedRose = new Shop([ item ]);
-// const items = gildedRose.updateQuality();
-// console.log(items);
+let item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 3)
+const gildedRose = new Shop([ item ]);
+const items = gildedRose.updateQuality();
+console.log(items); // sellIn 4, quality 6
 
-// let item2 = new Item("Aged Brie", 0, 48)
-// const gildedRose2 = new Shop([ item2 ]);
-// const items2 = gildedRose2.updateQuality();
-// console.log(items2);
+let item2 = new Item("Aged Brie", 0, 48)
+const gildedRose2 = new Shop([ item2 ]);
+const items2 = gildedRose2.updateQuality();
+console.log(items2); // sellIn -1, quality 50
 
-// let item3 = new Item("Sulfuras, Hand of Ragnaros", 0, 80)
-// const gildedRose3 = new Shop([ item3 ]);
-// const items3 = gildedRose3.updateQuality();
-// console.log(items3);
+let item3 = new Item("Sulfuras, Hand of Ragnaros", 0, 80)
+const gildedRose3 = new Shop([ item3 ]);
+const items3 = gildedRose3.updateQuality();
+console.log(items3); // sellIn 0, quality 80
 
-// let item4 = new Item("Wine", 1, 30)
-// const gildedRose4 = new Shop([ item4 ]);
-// const items4 = gildedRose4.updateQuality();
-// console.log(items4);
+let item4 = new Item("Wine", 1, 30)
+const gildedRose4 = new Shop([ item4 ]);
+const items4 = gildedRose4.updateQuality();
+console.log(items4); // sellIn 0, quality 29

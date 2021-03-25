@@ -24,6 +24,23 @@ class Shop {
     return this.items;
   }
 
+  increaseQuality(){
+    for (var i = 0; i < this.items.length; i++){
+      this.items[i].quality += 1;
+    }
+    return this.items;
+  }
+
+  isSulfuras(){
+    for (var i = 0; i < this.items.length; i++) {
+      if(this.items[i].name === 'Sulfuras, Hand of Ragnaros') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       //Loops through array of items in the shop

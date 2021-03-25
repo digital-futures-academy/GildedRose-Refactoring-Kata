@@ -29,3 +29,23 @@ describe("Checking lowerValue() method", function() {
     expect(items[0].quality).toEqual(28); 
   })
 });
+
+describe('Checking increaseQuality() method', function() {
+  it('Checking that increaseQuality method will increase quality', function () {
+    const gildedRose = new Shop([ new Item('Wine', 8, 30) ]);
+    const items = gildedRose.increaseQuality();
+    expect(items[0].quality).toEqual(31); 
+  })
+});
+
+describe('Checking isSulfuras() method', function() {
+  it('Checking that isSulfuras method will return true if item is Sulfuras', function () {
+    const gildedRose = new Shop([ new Item('Sulfuras, Hand of Ragnaros', 0, 80) ]);
+    expect(gildedRose.isSulfuras()).toEqual(true); 
+  })
+
+  it('Checking that isSulfuras method will return false if item is not Sulfuras', function () {
+    const gildedRose = new Shop([ new Item('Wine', 0, 80) ]);
+    expect(gildedRose.isSulfuras()).toEqual(false); 
+  })
+})

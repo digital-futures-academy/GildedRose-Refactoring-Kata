@@ -1,3 +1,6 @@
+const Sulfuras = require('../src/sulfuras.js')
+const Shop = require('../src/gilded_rose.js')
+
 describe("Sulfuras", () => {
     it("Sulfuras quality always stays at 80", () => {
       let item = [new Sulfuras(9, 10)]

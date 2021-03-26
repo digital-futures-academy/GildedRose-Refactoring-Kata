@@ -1,4 +1,4 @@
-const AgedBrie = require('../src/aged-brie.js')
+const AgedBrie = require('../src/aged_brie.js')
 const Shop = require('../src/gilded_rose.js')
 
 describe("Testing the Aged Brie class", () => {

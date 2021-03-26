@@ -1,3 +1,6 @@
+const NormalItem = require('../src/normal_item.js')
+const Shop = require('../src/gilded_rose.js')
+
 describe("Normal item", () => {
     it("Checking that a normal item has its quality value decreased by 1", () => {
       let item = [new NormalItem(50, 50)]

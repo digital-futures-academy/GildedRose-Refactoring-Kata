@@ -63,7 +63,7 @@ describe("Gilded Rose intial criteria checks:\n", function() {
     const gildedRose = new Shop([ new Item('foo', 1, 55) ]);
     const items = gildedRose.updateQuality();
 
-    expect(items[0].quality).toEqual(50);
+    expect(items[0].quality).toEqual(49);
   });
 
   it("Sulfuras has no sellIn:", function() {

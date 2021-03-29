@@ -26,6 +26,39 @@ class Shop {
 
   }
 
+  normalItemQualityCheck(item){
+    if(item.name != 'Sulfuras, Hand of Ragnaros' && item.quality > 50){
+      item.quality = 50;
+    }
+  }
+
+  sulfurasQualityCheck(item){
+    if(item.name == 'Sulfuras, Hand of Ragnaros' && item.quality != 80){
+      item.quality = 80;
+    }
+  }
+
+  quality(item){
+
+    if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert' && item.name != 'Sulfuras, Hand of Ragnaros') {
+      if (item.quality > 0) {
+        item.quality--;
+      }
+      this.conjured(item);
+    } else {
+      if (item.quality < 50) {
+        item.quality++;
+        this.backstagePass(item);
+      }
+    }
+  }
+  
+  conjured(item) {
+    if (item.name == 'Conjured' && item.quality > 0) {
+      item.quality--;
+    }  
+  }
+
   backstagePass(item){
 
     if (item.name == 'Backstage passes to a TAFKAL80ETC concert'){
@@ -42,28 +75,10 @@ class Shop {
     }
   }
 
-  agedBrie(){
+  sellIn(item) {
 
-    if (this.items[i].quality < 50) {
-      this.items[i].quality++;
-    }
-
-    return this.items;
-
-  }
-
-  quality(item){
-
-    if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert' && item.name != 'Sulfuras, Hand of Ragnaros') {
-      if (item.quality > 0) {
-        item.quality--;
-      }
-      this.conjured(item);
-    } else {
-      if (item.quality < 50) {
-        item.quality++;
-        this.backstagePass(item);
-      }
+    if (item.name != 'Sulfuras, Hand of Ragnaros') {
+      item.sellIn--;
     }
   }
 
@@ -85,29 +100,14 @@ class Shop {
     }
   }
 
-  sellIn(item) {
+  agedBrie(){
 
-    if (item.name != 'Sulfuras, Hand of Ragnaros') {
-      item.sellIn--;
+    if (this.items[i].quality < 50) {
+      this.items[i].quality++;
     }
-  }
 
-  conjured(item) {
-    if (item.name == 'Conjured' && item.quality > 0) {
-      item.quality--;
-    }  
-  }
+    return this.items;
 
-  normalItemQualityCheck(item){
-    if(item.name != 'Sulfuras, Hand of Ragnaros' && item.quality > 50){
-      item.quality = 50;
-    }
-  }
-
-  sulfurasQualityCheck(item){
-    if(item.name == 'Sulfuras, Hand of Ragnaros' && item.quality != 80){
-      item.quality = 80;
-    }
   }
 
 }

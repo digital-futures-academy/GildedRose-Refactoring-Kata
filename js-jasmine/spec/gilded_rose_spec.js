@@ -144,7 +144,7 @@ describe("Conjured item checks:\n", function() {
 
   it("Lower quality by 2 each day:", function() {
 
-    const gildedRose = new Shop([ new Item('conjured', 2, 3) ]);
+    const gildedRose = new Shop([ new Item('Conjured', 2, 3) ]);
     const items = gildedRose.updateQuality();
 
     expect(items[0].quality).toEqual(1);
@@ -152,7 +152,7 @@ describe("Conjured item checks:\n", function() {
 
   it("Lower sellIn by 1 each day:", function() {
 
-    const gildedRose = new Shop([ new Item('conjured', 2, 3) ]);
+    const gildedRose = new Shop([ new Item('Conjured', 2, 3) ]);
     const items = gildedRose.updateQuality();
 
     expect(items[0].sellIn).toEqual(1);
@@ -160,7 +160,15 @@ describe("Conjured item checks:\n", function() {
 
   it("Quality can not go below 0:", function() {
 
-    const gildedRose = new Shop([ new Item('conjured', 2, 0) ]);
+    const gildedRose = new Shop([ new Item('Conjured', 2, 0) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toEqual(0);
+  });
+
+  it("Once sell by date passes, degrades twice as fast as a normal item:", function() {
+
+    const gildedRose = new Shop([ new Item('Conjured', -1, 4) ]);
     const items = gildedRose.updateQuality();
 
     expect(items[0].quality).toEqual(0);

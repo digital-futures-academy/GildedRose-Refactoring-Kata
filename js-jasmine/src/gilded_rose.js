@@ -1,10 +1,4 @@
-class Item {
-  constructor(name, sellIn, quality){ 
-    this.name = name;
-    this.sellIn = sellIn;
-    this.quality = quality;
-  }
-}
+const Item = require('./item.js')
 
 class Shop {
   constructor(items=[]){ 
@@ -37,13 +31,14 @@ updateAgedBrie(){
  
   
   }
+
   return this.items
 }
 updateSulfuras(){
   for (let i =0; i< this.items.length ; i++){
     if (this.items[i].name === 'Sulfuras, Hand of Ragnaros'){
       this.items[i].sellIn = this.items[i].sellIn 
-      this.items[i].quality = 80
+      this.items[i].quality =  80;
     }
   }
   return this.items
@@ -69,8 +64,10 @@ updatePasses(){
   updateConjuredItems(){
     for (let i = 0; i < this.items.length ; i++){
       if(this.items[i].name === 'Conjured'){
-        this.items[i].quality -= 2
         this.items[i].sellIn -=1
+        if(this.items[i].quality > 0 ){
+          this.items[i].quality -= 2
+        }
 
       }
     }
@@ -79,7 +76,4 @@ updatePasses(){
 
 }
 
-module.exports = {
-  Item,
-  Shop
-}
+module.exports = Shop 

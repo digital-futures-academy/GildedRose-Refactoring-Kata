@@ -1,4 +1,5 @@
-var {Shop, Item} = require('../src/gilded_rose.js');
+const Shop = require('../src/gilded_rose.js')
+const Item = require('../src/item.js')
 
 describe("Gilded Rose", function() {
 
@@ -63,19 +64,21 @@ describe('Testing Aged Brie', function(){
 
 describe('Testing an ordinary item and an Aged Brie', function(){
   it('Testing ordinary item first', function(){
-    gildedRose = new Shop([new Item("bike", 5, 12)])
-    gildedRose2 = new Shop([new Item("Aged Brie", 5, 8)])
-    items = gildedRose.updateOrdinaryItems()
-    items2 = gildedRose2.updateAgedBrie()
+     item = new Item("bike", 5, 12)
+     item2 = new Item("Aged Brie", 5, 8)
+     gildedRose = new Shop([item, item2])
+     items = gildedRose.updateOrdinaryItems()
+     items2 = gildedRose.updateAgedBrie()
     expect(items[0].quality).toEqual(11)
   })
    it('Testing Aged Brie second', function(){
-    item = new Item("bike", 5, 10)
-    item2 = new Item("Aged Brie", 5, 8)
-    gildedRose = new Shop([item, item2 ])
-    items = gildedRose.updateOrdinaryItems()
-    items = gildedRose.updateAgedBrie()
-    expect(items[1].quality).toEqual(9)
+     item = new Item("bike", 5, 12)
+     item2 = new Item("Aged Brie", 5, 8)
+     gildedRose = new Shop([item, item2])
+     items = gildedRose.updateOrdinaryItems()
+     items2 = gildedRose.updateAgedBrie()
+     items2 = gildedRose.updateAgedBrie()
+    expect(items2[1].quality).toEqual(10)
   })
 })
 
@@ -134,6 +137,13 @@ describe('Testing Conjured Items',function(){
         items = gildedRose.updateConjuredItems();
         expect(items[0].quality).toEqual(36)
   })
+    it('Checks if quality does not drop below zero',function(){
+       gildedRose = new Shop([ new Item("Conjured", 5, 4)])
+        items = gildedRose.updateConjuredItems();
+        items = gildedRose.updateConjuredItems();
+         items = gildedRose.updateConjuredItems();
+        expect(items[0].quality).toEqual(0)
+  })
 })
 
 describe('Testing a variety of items', function(){
@@ -143,8 +153,8 @@ describe('Testing a variety of items', function(){
   item3 = new Item("Sulfuras, Hand of Ragnaros", 5, 80)
   item4 = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 40)
   gildedRose = new Shop([item, item2, item3, item4])
-  updated_items = gildedRose.updateQuality()
-  expect(updated_items[2].quality).toBe(80)
+  updated_sulfuras = gildedRose.updateSulfuras()
+  expect(updated_sulfuras[2].quality).toBe(80)
 
   })
    it('Testing Ordinary Item after sell in date has passed', function(){
@@ -163,8 +173,11 @@ describe('Testing a variety of items', function(){
   item3 = new Item("Sulfuras, Hand of Ragnaros", 5, 80)
   item4 = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 40)
   gildedRose = new Shop([item, item2, item3, item4])
-  updated_items = gildedRose.updateQuality()
-  expect(updated_items[1].quality).toBe(9)
+  updated_items = gildedRose.updateOrdinaryItems()
+  updated_aged_brie = gildedRose.updateAgedBrie()
+  updated_sulfuras = gildedRose.updateSulfuras()
+  updated_passes = gildedRose.updatePasses()
+  expect(updated_aged_brie[1].quality).toBe(9)
 
   })
     it('Testing Backstage Passes', function(){
@@ -173,8 +186,12 @@ describe('Testing a variety of items', function(){
   item3 = new Item("Sulfuras, Hand of Ragnaros", 5, 80)
   item4 = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 40)
   gildedRose = new Shop([item, item2, item3, item4])
-  updated_items = gildedRose.updateQuality()
-  expect(updated_items[3].quality).toBe(43)
+  updated_ordinary_items = gildedRose.updateOrdinaryItems()
+  updated_aged_brie = gildedRose.updateAgedBrie()
+  updated_sulfuras = gildedRose.updateSulfuras()
+  updated_passes = gildedRose.updatePasses()
+
+  expect(updated_passes[3].quality).toBe(43)
 
   })
 })

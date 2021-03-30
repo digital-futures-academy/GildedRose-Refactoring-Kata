@@ -1,3 +1,10 @@
+const NormalItemQuality = require("./normalItemQualityCheck");
+const SulfurasQuality = require('./sulfurasQualityCheck');
+const SellIn = require('./sell-In');
+const Conjured = require("./conjured");
+const BackstagePass = require("./backstagePass");
+const AgedBrie = require("./agedBrie");
+
 class Item {
   constructor(name, sellIn, quality){
     this.name = name;
@@ -14,10 +21,17 @@ class Shop {
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       
-      this.normalItemQualityCheck(this.items[i]);
-      this.sulfurasQualityCheck(this.items[i]);
+      this.normalItemQuality = new NormalItemQuality(this.items[i]);
+      this.items[i] = this.normalItemQuality.check()
+
+      this.sulfurasQuality = new SulfurasQuality(this.items[i]);
+      this.items[i] = this.sulfurasQuality.check()
+
       this.quality(this.items[i]);
-      this.sellIn(this.items[i]);
+
+      this.sellIn = new SellIn(this.items[i]);
+      this.items[i] = this.sellIn.reduce()
+
       this.sellInPast(this.items[i]);
 
     }
@@ -26,59 +40,20 @@ class Shop {
 
   }
 
-  normalItemQualityCheck(item){
-    if(item.name != 'Sulfuras, Hand of Ragnaros' && item.quality > 50){
-      item.quality = 50;
-    }
-  }
-
-  sulfurasQualityCheck(item){
-    if(item.name == 'Sulfuras, Hand of Ragnaros' && item.quality != 80){
-      item.quality = 80;
-    }
-  }
-
   quality(item){
 
     if (item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert' && item.name != 'Sulfuras, Hand of Ragnaros') {
       if (item.quality > 0) {
         item.quality--;
       }
-      this.conjured(item);
+      this.conjured = new Conjured(item);
+      this.item = this.conjured.check();
     } else {
       if (item.quality < 50) {
         item.quality++;
-        this.backstagePass(item);
+        this.backstagePass = new BackstagePass(item)
+        this.item = this.backstagePass.check();
       }
-    }
-  }
-  
-  conjured(item) {
-    if (item.name == 'Conjured' && item.quality > 0) {
-      item.quality--;
-    }  
-  }
-
-  backstagePass(item){
-
-    if (item.name == 'Backstage passes to a TAFKAL80ETC concert'){
-      for (var i = 0; i < this.items.length; i++){
-        if (this.items[i].sellIn < 11 && this.items[i].quality < 50) {
-          this.items[i].quality++;
-        }
-        if (this.items[i].sellIn < 6 && this.items[i].quality < 50) {
-          this.items[i].quality++;
-        }
-      }
-
-      return this.items;
-    }
-  }
-
-  sellIn(item) {
-
-    if (item.name != 'Sulfuras, Hand of Ragnaros') {
-      item.sellIn--;
     }
   }
 
@@ -90,27 +65,20 @@ class Shop {
           if (item.quality > 0) {
             item.quality--;
           }
-          this.conjured(item);
+          this.conjured = new Conjured(item);
+          item = this.conjured.check();
         } else {
           item.quality = 0;
         }
       } else {
-        this.agedBrie();
+        this.agedBrie = AgedBrie(item)
+        item = this.agedBrie.increaseQuality();
       }
     }
   }
 
-  agedBrie(){
-
-    if (this.items[i].quality < 50) {
-      this.items[i].quality++;
-    }
-
-    return this.items;
-
-  }
-
 }
+
 module.exports = {
   Item,
   Shop

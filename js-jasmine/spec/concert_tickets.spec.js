@@ -1,4 +1,4 @@
-const concertTickets = require('../src/concert_tickets.js')
+const Tickets = require('../src/concert_tickets.js')
 const Shop = require('../src/gilded_rose.js')
 
 
@@ -45,7 +45,7 @@ describe("Testing the concert tickets class", () => {
       expect(shop.items[0].quality).toEqual(50);
     })
 
-    test("tickets sellIn decreases by 1 regardless of quality", () => {
+    it("tickets sellIn decreases by 1 regardless of quality", () => {
       var item = [new Tickets(9, 90)]
       var shop = new Shop(item);
       shop.updateQuality();

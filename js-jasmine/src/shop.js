@@ -14,73 +14,78 @@ class Shop {
       return;
     }
     else{
-      this.checkwhatkindofItem(templist[0]);
+      let it = this.items.length - templist.length;
+      this.checkwhatkindofItem(templist[0], it);
       this.updateQuality(templist.slice(1));
-      this.count++;
     }
   }
 
-  checkwhatkindofItem(item){
-    if(item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert' || item.name == 'Sulfuras, Hand of Ragnaros'){
-      this.specialitem(item);
+  checkwhatkindofItem(item, it){
+    if(item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert' || item.name == 'Sulfuras, Hand of Ragnaros' || item.name == 'Conjured'){
+      this.specialitem(item, it);
     }
     else{
-      this.ordinaryitem(item);
+      this.ordinaryitem(item, it);
     }
   }
   
-  ordinaryitem(item){
+  ordinaryitem(item, it){
     if(item.sellIn > -1 && item.quality > 0){
-      this.items[this.count].quality--;
+      this.items[it].quality--;
     }
     else if(item.quality > 0){
-      this.items[this.count].quality -= 2;
+      this.items[it].quality -= 2;
     }
-    this.items[this.count].sellIn--;
+    this.items[it].sellIn--;
   }
 
-  specialitem(item){
+  specialitem(item, it){
     if(item.name === 'Aged Brie'){
-      this.agedBrie(item);
+      this.agedBrie(it);
     }
     else if(item.name === 'Backstage passes to a TAFKAL80ETC concert'){
-      this.concerttickets(item);
+      this.concerttickets(item, it);
+    }
+    else if(item.name === 'Conjured'){
+      this.conjured(it);
     }
     else{
-      this.hand(item);
+      this.hand(item, it);
     }
   }
 
-  hand(item){
+  conjured(it){
+    this.items[it].quality = Math.max(0, (this.items[it].sellIn > 0 ? this.items[it].quality -= 2 : this.items[it].quality -= 4));
+    this.items[it].sellIn--; 
+  }
+
+  hand(item, it){
     if(item.quality !== 80){
-      this.items[this.count].quality = 80;
+      this.items[it].quality = 80;
     }
   }
 
-  agedBrie(item){
-    if(item.quality < 50 && item.sellIn > 0){
-      this.items[this.count].quality++;
-    }
-    else if(item.quality < 50){
-      this.items[this.count].quality += 2;
-    }
-    this.items[this.count].sellIn--;
+  agedBrie(it){
+    this.items[it].quality = Math.min(50, (this.items[it].sellIn > 0 ? this.items[it].quality + 1 : this.items[it].quality + 2));
+    this.items[it].sellIn--;
   }
 
-  concerttickets(item){
+  concertCal(item, it){
     if(item.sellIn <= 0){
-      this.items[this.count].quality = 0;
+    return 0;
     }
-    else if(item.sellIn < 6 && item.quality < 48){
-      this.items[this.count].quality += 3; 
+    else if(item.sellIn < 6){
+      return this.items[it].quality += 3; 
     }
-    else if(item.sellIn < 11 && item.quality < 49){
-      this.items[this.count].quality += 2;
+    else if(item.sellIn < 11){
+      return this.items[it].quality += 2;
     }
-    else{
-      this.items[this.count].quality++;
-    }
-    this.items[this.count].sellIn --;
+    return this.items[it].quality++;
+  }
+
+  concerttickets(item, it){
+    this.items[it].quality = Math.min(50, this.concertCal(item, it));
+    this.items[it].sellIn --;
   }
 
 }

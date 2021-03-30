@@ -1,5 +1,6 @@
 var Shop = require('../src/shop.js');
 var Item = require('../src/item');
+const { i } = require('mathjs');
 
 describe("Gilded Rose", function() {
 
@@ -69,5 +70,26 @@ describe("Gilded Rose", function() {
     const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 0, 40)]);
     const items = gildedRose.quality();
     expect(items[0].quality).toEqual(0);
+  })
+  
+  it('Conjured items deplete at faster rates', function(){
+    const gildedRose = new Shop([new Item('Conjured', 1, 4)]);
+    const items = gildedRose.quality();
+    expect(items[0].quality).toEqual(2);
+  })
+
+  it('Conjured items deplete at faster rates', function(){
+    const gildedRose = new Shop([new Item('Conjured', 0, 4)]);
+    const items = gildedRose.quality();
+    expect(items[0].quality).toEqual(0);
+  })
+
+  it('Multiple items', function(){
+    const gildedRose = new Shop([new Item('Conjured', 0, 4), new Item('Aged Brie', 1, 49)]);
+    const items = gildedRose.quality();
+    expect(items[0].quality).toEqual(0);
+    expect(items[0].sellIn).toEqual(-1);
+    expect(items[1].quality).toEqual(50);
+    expect(items[1].sellIn).toEqual(0);
   })
 });

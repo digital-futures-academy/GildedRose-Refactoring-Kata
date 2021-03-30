@@ -1,21 +1,21 @@
-const Common = require('../src/common_items.js')
+const Shop = require('../src/shop.js')
 const Item = require('../src/item.js')
 
 
 describe('Testing ordinary items', function(){
   it('Checks if quality is updated', function(){
-    gildedRose = new Common([ new Item("bike", 5, 10) ])
+    gildedRose = new Shop([ new Item("bike", 5, 10) ])
     items = gildedRose.updateOrdinaryItems();
     expect(items[0].quality).toEqual(9)
   })
   it('Checks if quality drops twice as fast after  sell by date passed', function(){
-    gildedRose = new Common([ new Item("bike", -1, 10)])
+    gildedRose = new Shop([ new Item("bike", -1, 10)])
     items = gildedRose.updateOrdinaryItems();
     expect(items[0].quality).toEqual(8)
 
   })
     it('Checks if sell in day is updated', function(){
-    gildedRose = new Common([ new Item("bike", -1, 10)])
+    gildedRose = new Shop([ new Item("bike", -1, 10)])
     items = gildedRose.updateOrdinaryItems();
     items = gildedRose.updateOrdinaryItems();
     items = gildedRose.updateOrdinaryItems();
@@ -23,7 +23,7 @@ describe('Testing ordinary items', function(){
 
   })
      it('Checks if quality is not a negative number', function(){
-    gildedRose = new Common([ new Item("bike", -1, 0)])
+    gildedRose = new Shop([ new Item("bike", -1, 0)])
     items = gildedRose.updateOrdinaryItems();
     items = gildedRose.updateOrdinaryItems();
     items = gildedRose.updateOrdinaryItems();
@@ -36,13 +36,13 @@ describe('Testing ordinary items', function(){
 
 describe('Testing Conjured Items',function(){
   it('Checks if its quality decreases twice as fast',function(){
-       gildedRose = new Common([ new Item("Conjured", 5, 40)])
+       gildedRose = new Shop([ new Item("Conjured", 5, 40)])
         items = gildedRose.updateConjuredItems();
         items = gildedRose.updateConjuredItems();
         expect(items[0].quality).toEqual(36)
   })
     it('Checks if quality does not drop below zero',function(){
-       gildedRose = new Common([ new Item("Conjured", 5, 4)])
+       gildedRose = new Shop([ new Item("Conjured", 5, 4)])
         items = gildedRose.updateConjuredItems();
         items = gildedRose.updateConjuredItems();
          items = gildedRose.updateConjuredItems();

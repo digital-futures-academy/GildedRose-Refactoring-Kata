@@ -1,6 +1,6 @@
 const Item = require('./item.js')
 
-class Common {
+class Shop {
   constructor(items=[]){ 
     this.items = items;
   }
@@ -44,4 +44,4 @@ class Common {
 
 }
 
-module.exports = Common 
+module.exports = Shop

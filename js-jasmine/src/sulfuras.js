@@ -5,8 +5,8 @@ class Sulfuras {
     }
   
     updateQuality() {
-      return this.quality = 80
+      return this.quality = 80;
     }
 }
   
-module.exports = Sulfuras
+module.exports = Sulfuras;

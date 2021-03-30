@@ -1,5 +1,5 @@
 class Shop {
-    constructor(items=[]){
+    constructor(items = []){
         this.items = items;
     }
   
@@ -8,7 +8,6 @@ class Shop {
           return item.updateQuality();
         });
     }
-
 }
 
 module.exports = Shop;

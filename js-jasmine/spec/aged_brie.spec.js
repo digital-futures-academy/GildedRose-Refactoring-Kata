@@ -20,14 +20,14 @@ describe("Testing the Aged Brie class", () => {
         let item = [new AgedBrie(10, 5)]
         const gildedRose = new Shop(item);
         gildedRose.updateQuality();
-      expect(gildedRose.items[0].quality).toEqual(6);
+        expect(gildedRose.items[0].quality).toEqual(6);
     })
 
     it("Aged Brie sellIn decreases by 1 regardless of quality", () => {
         let item = [new AgedBrie(10, 0)]
         const gildedRose = new Shop(item);
         gildedRose.updateQuality();
-      expect(gildedRose.items[0].sellIn).toEqual(9);
+        expect(gildedRose.items[0].sellIn).toEqual(9);
     })
 
-  })
+})

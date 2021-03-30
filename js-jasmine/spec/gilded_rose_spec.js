@@ -1,74 +1,81 @@
-var {Shop, Item} = require('../src/gilded_rose.js');
+const BackstagePass = require('../src/backstage_passes')
+const AgedBrie = require('../src/aged_brie')
+const Sulfuras = require('../src/sulfuras')
+const NormalItem = require('../src/normal_item')
+const ConjuredItem = require('../src/conjured_item')
+const Item = require('../src/item')
+
 describe("Gilded Rose", function() {
 
-  // it("should foo", function() {
-  //   const gildedRose = new Shop([ new Item("foo", 0, 0) ]);
-  //   const items = gildedRose.updateQuality();
-  //   expect(items[0].name).toEqual("fixme");
-  // });
+  it('Normal items quality reduces in intervals of 1', function() {
+    let normalItem = new NormalItem([ new Item('test1', 5, 10) ])
+    const items = normalItem.updateQuality()
+    expect(items[0].sellIn).toEqual(4);
+    expect(items[0].quality).toEqual(9);
+  })
 
   it('After sellIn, quality reduces 2x as fast', function() {
-    const gildedRose = new Shop([ new Item('test1', -1, 10) ]);
-    const items = gildedRose.updateQuality();
+    let normalItem = new NormalItem([ new Item('test1', -1, 10) ])
+    const items = normalItem.updateQuality()
     expect(items[0].sellIn).toEqual(-2);
     expect(items[0].quality).toEqual(8);
   })
+
   it('Item quality is never negative', function() {
-    const gildedRose = new Shop([ new Item('test item', -1, 0) ]);
-    const items = gildedRose.updateQuality(); 
+    let normalItem = new NormalItem([ new Item('test1', -1, 0) ])
+    const items = normalItem.updateQuality()
     expect(items[0].sellIn).toEqual(-2);
     expect(items[0].quality).toEqual(0);
   })
 
   it('Aged Brie increases in quality as it ages', function() {
-    const gildedRose = new Shop([ new Item('Aged Brie', 3, 10) ]);
-    const items = gildedRose.updateQuality(); 
+    let agedBrie = new AgedBrie([ new Item('Aged Brie', 3, 10) ]);
+    let items = agedBrie.updateQuality()
     expect(items[0].sellIn).toEqual(2);
     expect(items[0].quality).toEqual(11);
   })
 
   it('Sulfuras never decrease in quality and never has to be sold - quality always 80', function() {
-    const gildedRose = new Shop([ new Item('Sulfuras, Hand of Ragnaros', 0, 80) ]);
-    const items = gildedRose.updateQuality(); 
+    let sulfuras = new Sulfuras([ new Item('Sulfuras, Hand of Ragnaros', 0, 80) ]);
+    let items = sulfuras.updateQuality()
     expect(items[0].sellIn).toEqual(0);
     expect(items[0].quality).toEqual(80);
   })
 
   it('Backstage passes quality increases by 2 when there are 10 days or less', function() {
-    const gildedRose = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 9, 10) ]);
-    const items = gildedRose.updateQuality(); 
+    let backstagePass = new BackstagePass([ new Item('Backstage passes to a TAFKAL80ETC concert', 9, 12) ]);
+    let items = backstagePass.updateQuality()
     expect(items[0].sellIn).toEqual(8);
-    expect(items[0].quality).toEqual(12);
+    expect(items[0].quality).toEqual(14);
   })
   
   it('Backstage passes quality increases by 3 when there are 5 days or less', function() {
-    const gildedRose = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 4, 20) ]);
-    const items = gildedRose.updateQuality(); 
+    let backstagePass = new BackstagePass([ new Item('Backstage passes to a TAFKAL80ETC concert', 4, 20) ]);
+    let items = backstagePass.updateQuality()
     expect(items[0].sellIn).toEqual(3);
     expect(items[0].quality).toEqual(23);
   })
 
   it('Backstage passes quality drops to zero after concert', function() {
-    const gildedRose = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 0, 20) ]);
-    const items = gildedRose.updateQuality(); 
+    let backstagePass = new BackstagePass([ new Item('Backstage passes to a TAFKAL80ETC concert', 0, 20) ]);
+    let items = backstagePass.updateQuality()
     expect(items[0].sellIn).toEqual(-1);
     expect(items[0].quality).toEqual(0);
   })
 
-  it('Item quality is over 50', function() {
-    const gildedRose = new Shop([ new Item('Aged Brie', 5, 50) ]);
-    const items = gildedRose.updateQuality(); 
+  it('Item quality is never over 50', function() {
+    let normalItem = new AgedBrie([ new Item('Aged Brie', 5, 50) ])
+    const items = normalItem.updateQuality()
     expect(items[0].sellIn).toEqual(4);
     expect(items[0].quality).toEqual(50);
   })
 
   it('Conjured item decreases in quality twice as fast', function() {
-    const gildedRose = new Shop([ new Item('Conjured', 5, 10) ]);
-    const items = gildedRose.updateQuality(); 
+    let conjured = new ConjuredItem([ new Item('Conjured Item', 5, 10) ])
+    const items = conjured.updateQuality()
     expect(items[0].sellIn).toEqual(4);
     expect(items[0].quality).toEqual(8);
   })
-
 });
 
 /*

@@ -1,1 +1,0 @@
-To run this programme, clone it to your local machine and then use the command 'npm install' to install dependencies. After this, run tests with 'npm test'

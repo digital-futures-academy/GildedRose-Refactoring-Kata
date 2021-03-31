@@ -20,7 +20,7 @@ describe('Testing Backstage Passes Class', function(){
   })
       it('Checks if its quality triples when there are 5 or less days until the concert', function(){
         item = new Item("Backstage passes to a TAFKAL80ETC concert", 4, 40)
-       passes = new Passes([item])
+        passes = new Passes([item])
         updated_passes = passes.update();
         updated_passes = passes.update();
         result = updated_passes

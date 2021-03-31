@@ -12,6 +12,6 @@ describe('Tests for Sulfuras Class', function(){
       item = new Item ("Sulfuras, Hand of Ragnaros", 5, 80)
       updated_sulfuras = new Sulfuras([item])
       result = updated_sulfuras.update()
-      expect(result[0].sellIn).toEqual(4)
+      expect(result[0].sellIn).toEqual(5)
   })
 })

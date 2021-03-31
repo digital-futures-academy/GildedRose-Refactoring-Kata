@@ -4,7 +4,7 @@ class AgedBrie {
         this.items = items
     }
 
-    qualityUpdate() { // put in its own class 
+    qualityUpdate() {
         for (var i = 0; i < this.items.length; i++) {
             if (this.items[i].quality < 50) {
                 this.items[i].quality += 1

@@ -19,4 +19,4 @@ npx jasmine
 2. All items have a Quality value which denotes how valuable the item is
 3. At the end of each day our system lowers both values for every item
 4. The Quality of an item is never negative
-5. The Quality of an item is never more than 50
+5. The Quality of an item is never more than 50 (except Sulfuras)

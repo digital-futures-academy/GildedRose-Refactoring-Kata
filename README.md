@@ -11,7 +11,7 @@ This is my take on the Gilded Rose Refactoring Kata which focuses on refactoring
 ```sh
 npm test 
 # or
-npm install
+npx jasmine
 ```
 
 ### Requirements

@@ -17,7 +17,7 @@ describe("Gilded Rose", function() {
 
 });
 
-describe('Class: Shop()', function() {
+describe('Shop()', function() {
     let gildedRose
     let item
     beforeEach(function() {
@@ -36,11 +36,25 @@ describe('Class: Shop()', function() {
         expect(item[0].name).toEqual("bread");
     })
     it('Once the sell by date has passed, quality drops twice as fast', function() {
-        let shop = new Shop([new Item('bread', 0, 7)])
-        let item1 = shop.updateQuality()
+        let gildedRose = new Shop([new Item('bread', 0, 7)])
+        let item1 = gildedRose.updateQuality()
         expect(item1[0].quality).toEqual(5)
     })
-})
+    it('Sulfuras, Hand of Ragnaros never decreases in sellIn or quality', function() {
+        const gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', 1, 80)]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(80);
+        expect(items[0].sellIn).toEqual(1);
+    })
+    it('Multiple items', function() {
+        const gildedRose = new Shop([new Item('Conjured', 0, 4), new Item('Aged Brie', 1, 49)]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(0);
+        expect(items[0].sellIn).toEqual(-1);
+        expect(items[1].quality).toEqual(50);
+        expect(items[1].sellIn).toEqual(0);
+    })
+});
 
 describe('Aged Brie', function() {
 
@@ -50,22 +64,22 @@ describe('Aged Brie', function() {
         expect(item[0].quality).toEqual(6)
     })
 
-    xit('Quality increases by 2 when there are 10 days', function() {
+    it('Quality increases by 2 when there are 10 days', function() {
         gildedRose = new Shop([new Item('Aged Brie', 10, 5)])
-        item = gildedRose.updateQuality()
+        item = gildedRose.agedBrie()
         expect(item[0].quality).toEqual(7) // how to make this work?
     })
 
-    xit('Quality drops to 0 after the concert', function() {
+    it('Quality drops to 0 after the concert', function() {
         //concert??
         gildedRose = new Shop([new Item('Aged Brie', 10, 5)])
-        item = gildedRose.updateQuality()
+        item = gildedRose.agedBrie()
         expect(item[0].quality).toEqual(0)
     })
 
     it('The Quality of an item is never more than 50', function() {
         gildedRose = new Shop([new Item('Aged Brie', 10, 50)])
-        item = gildedRose.updateQuality()
+        item = gildedRose.agedBrie()
         expect(item[0].quality).toEqual(50)
     })
 })
@@ -74,10 +88,41 @@ describe('backstage passes', function() {
     let shop
     let item
     beforeEach(function() {
-        shop = new Shop([new Item("backstage passes", 10, 5)])
+        shop = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 10, 5)])
         item = shop.updateQuality()
     })
     it('increases in quality as sellIn date approaches', function() {
         expect(item[0].quality).toEqual(6)
+    })
+    it('Quality to hit zero when sellIn is past for Backstage passes to a TAFKAL80ETC concert', function() {
+        const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 0, 40)]);
+        const items = gildedRose.updateQualityy();
+        expect(items[0].quality).toEqual(0);
+    })
+
+    it('Quality increases for Backstage passes to a TAFKAL80ETC concert when there are 10 days or less by 2', function() {
+        const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 10, 40)]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(42);
+    })
+
+    it('Quality increases for Backstage passes to a TAFKAL80ETC concert when 5 days or less by 3', function() {
+        const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 4, 40)]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(43);
+    })
+})
+describe('faster rates', function() {
+
+    it('Conjured items deplete at faster rates', function() {
+        const gildedRose = new Shop([new Item('Conjured', 1, 4)]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(2); // failing test
+    })
+
+    it('Conjured items deplete at faster rates', function() {
+        const gildedRose = new Shop([new Item('Conjured', 0, 4)]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(0);
     })
 })

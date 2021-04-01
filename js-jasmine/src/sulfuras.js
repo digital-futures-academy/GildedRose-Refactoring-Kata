@@ -1,16 +1,13 @@
-class Sulfuras {
-  constructor (items = []) {
-    this.items = items
-  }
+const Item = require('./item.js')
 
+class Sulfuras {
+  constructor (item) {
+    this.item = item
+  }
   update () {
-    for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].name === 'Sulfuras, Hand of Ragnaros') {
-        this.items[i].sellIn = this.items[i].sellIn
-        this.items[i].quality = 80
-      }
-    }
-    return this.items
+        this.item.sellIn = this.item.sellIn
+        this.item.quality = 80
+    return this.item
   }
 }
 module.exports = Sulfuras

@@ -8,9 +8,9 @@ Domain Model:
 | Object   | Message   | Property              | Context | Output |
 |----------|-----------|-----------------------|---------|--------|
 | Item     |           | name, sellin, quality |         | object |
-| Shop     | update()  | items                 |         | object |
-| Ordinary | update()  | items                 |         | object |
-| Conjured | update () | items                 |         | object |
-| Sulfuras | update () | items                 |         | object |
-| Passes   | update()  | items                 |         | object |
-| AgedBrie | update () | items                 |         | object |
+| Shop     | update()  | this.items            |         | object |
+| Ordinary | update()  | this.item             |         | object |
+| Conjured | update () | this.item             |         | object |
+| Sulfuras | update () | this.item             |         | object |
+| Passes   | update()  | this.item             |         | object |
+| AgedBrie | update () | this.item             |         | object |

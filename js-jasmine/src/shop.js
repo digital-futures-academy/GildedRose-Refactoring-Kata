@@ -5,27 +5,26 @@ const Conjured = require('./conjured_items.js')
 const Sulfuras = require('./sulfuras.js')
 const Passes = require('./passes.js')
 
-class Classes{
-  'Aged Brie'= AgedBrie
-   'Conjured'= Conjured
-   'Ordinary'= Ordinary
-   "Backstage passes to a TAFKAL80ETC concert"= Passes
-   'Sulfuras, Hand of Ragnaros'= Sulfuras
-
+const Classes ={
+   'Aged Brie': AgedBrie,
+   'Conjured': Conjured,
+    'Ordinary': Ordinary,
+   "Backstage passes to a TAFKAL80ETC concert": Passes,
+   'Sulfuras, Hand of Ragnaros': Sulfuras,
 }
 
-class Shop {
+class Shop{
   constructor(items=[]){
-    this.items = items
+    this.items = items;
   }
-
-  update(){
-     this.items.forEach(item =>{item = new Classes(item.name)
-      item.update()} )
-      return this.items
-  }
-   
-
+  updateQuality(){
+       this.items.map(item => {
+        const itemClass = Classes[item.name]
+        const updated_item = new itemClass(item)
+         updated_item.update()
+    })
+    return this.items
+}
 }
 
-module.exports = Shop
+module.exports = Shop 

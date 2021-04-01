@@ -1,21 +1,18 @@
-class Ordinary {
-  constructor (items = []) {
-    this.items = items
-  }
+const Item = require('./item.js')
 
+class Ordinary {
+  constructor (item) {
+    this.item = item
+  }
   update () {
-    for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].name.includes('Ordinary')) {
-        this.items[i].sellIn -= 1
-        if (this.items[i].quality > 0) {
-          this.items[i].quality -= 1
+        this.item.sellIn -= 1
+        if (this.item.quality > 0) {
+          this.item.quality -= 1
         }
-        if (this.items[i].sellIn <= 0 && this.items[i].quality > 0) {
-          this.items[i].quality -= 1
+        if (this.item.sellIn <= 0 && this.item.quality > 0) {
+          this.item.quality -= 1
         }
-      }
-    }
-    return this.items
+    return this.item
   }
 }
 module.exports = Ordinary

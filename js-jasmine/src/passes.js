@@ -1,25 +1,25 @@
+const Item = require('./item.js')
+
 class Passes {
-  constructor (items = []) {
-    this.items = items
+  constructor (item) {
+    this.item =item
   }
 
   update () {
-    for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].name === 'Backstage passes to a TAFKAL80ETC concert' && this.items[i].quality < 50) {
-        this.items[i].sellIn -= 1
-        this.items[i].quality += 1
-        if (this.items[i].sellIn <= 10) {
-          this.items[i].quality += 1
-          if (this.items[i].sellIn <= 5 && this.items[i].sellIn >= 1) {
-            this.items[i].quality += 1
+      if (this.item.quality < 50) {
+        this.item.sellIn -= 1
+        this.item.quality += 1
+        if (this.item.sellIn <= 10 ) {
+          this.item.quality += 1
+          if (this.item.sellIn <= 5 && this.item.sellIn >= 1) {
+            this.item.quality += 1
           }
-          if (this.items[i].sellIn <= 0) {
-            this.items[i].quality = 0
+          if (this.item.sellIn <= 0) {
+            this.item.quality = 0
           }
         }
       }
-    }
-    return this.items
+    return this.item
   }
 }
 module.exports = Passes

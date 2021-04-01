@@ -1,6 +1,5 @@
 var Shop = require('../src/shop.js');
 var Item = require('../src/item');
-const { i } = require('mathjs');
 
 describe("Gilded Rose", function() {
 

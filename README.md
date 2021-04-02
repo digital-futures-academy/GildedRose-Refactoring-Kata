@@ -1,9 +1,16 @@
 # Mousinho gilded rose challenge
 My current attempt to refactor the guilded rose problem. Practice at analysing legacy code, creating a domain model, test driven development, and OOP principles.
 
+## Directory Information
+To access the edited files in this directory, navigate to the [js-jasmine](https://github.com/AntMousinho/gilded-rose-refactoring-challenge/tree/master/js-jasmine) folder.
+
+Within this directory the gilded rose functionality has been split beween multiple classes. The [Shop](https://github.com/AntMousinho/gilded-rose-refactoring-challenge/blob/master/js-jasmine/src/shop.js) class maintains its original funcitonality, holding an array of Items and updating them. The `Shop` class accesses a dictionary of classes, [itemDict](https://github.com/AntMousinho/gilded-rose-refactoring-challenge/blob/master/js-jasmine/src/itemDict.js), that each hold the functionality to update the various item types found at the gilded rose. 
+
+Each of these classes can be found within the [itemUpdateClasses Directory](https://github.com/AntMousinho/gilded-rose-refactoring-challenge/tree/master/js-jasmine/src/itemUpdateClasses).
+
 ## Quick setup
 ```
-$ git clone git@github.com:AntMousinho/mousinho-gilded-rose-challenge.git
+$ git clone git@github.com:AntMousinho/gilded-rose-refactoring-challenge.git
 $ npm install
 ```
 
@@ -94,4 +101,5 @@ this.items[i].quality ++;
 - Thought to extract item type functions into an object within `updateDict.js`
     - Wrote specs for this object's expected outputs
     - Extracted the methods so that the Shop class could select the appropriate method to use depending on the first word of the item.
-
+- Extracted the funcitonality of each item type into their own classes (found within `src/itemUpdateClasses`).
+	- the item dictionary now refers to each type of item class to choose the correct update method to call

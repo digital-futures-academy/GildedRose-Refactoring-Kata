@@ -1,12 +1,11 @@
 const Shop = require('../src/shop.js');
 const Item = require('../src/item');
-const updateDict = require('../src/updateDict').updateDict;
 
 let gildedRose, item;
 
 describe("Regular Item tests: ", () => {
   it('A regular item, quality and sellin drop by 1', () => {
-    gildedRose = new Shop(updateDict, [new Item('testRegular', 10, 5)]);
+    gildedRose = new Shop([new Item('testRegular', 10, 5)]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(9);
@@ -14,7 +13,7 @@ describe("Regular Item tests: ", () => {
   })
 
   it('A regular item quality decreases by 2 if sellin is 0 or less', () => {
-    gildedRose = new Shop(updateDict, [new Item('testRegular', 0, 5)]);
+    gildedRose = new Shop([new Item('testRegular', 0, 5)]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(-1);
@@ -22,7 +21,7 @@ describe("Regular Item tests: ", () => {
   })
 
   it('Item quality cannot be below 0', () => {
-    gildedRose = new Shop(updateDict, [new Item('testRegular', -2, 0)]);
+    gildedRose = new Shop([new Item('testRegular', -2, 0)]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(-3);
@@ -32,7 +31,7 @@ describe("Regular Item tests: ", () => {
 
 describe('Sulfuras tests: ', () => {
   it('Item quality or sellin does not change', () => {
-    gildedRose = new Shop(updateDict, [new Item('Sulfuras, Hand of Ragnaros', 40, 20)]);
+    gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', 40, 20)]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(40);
@@ -40,7 +39,7 @@ describe('Sulfuras tests: ', () => {
   })
 
   it('Item quality can be above 50', () => {
-    gildedRose = new Shop(updateDict, [new Item('Sulfuras, Hand of Ragnaros', 40, 80)]);
+    gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', 40, 80)]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(40);
@@ -48,7 +47,7 @@ describe('Sulfuras tests: ', () => {
   })
 
   it('Item sellin can be below 0', () => {
-    gildedRose = new Shop(updateDict, [new Item('Sulfuras, Hand of Ragnaros', -10, 80)]);
+    gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', -10, 80)]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(-10);
@@ -58,7 +57,7 @@ describe('Sulfuras tests: ', () => {
 
 describe('Testing Aged Brie: ', () => {
   it('Quality increases by 1 when sellin is above 0', () => {
-    gildedRose = new Shop(updateDict, [new Item("Aged Brie", 5, 6),]);
+    gildedRose = new Shop([new Item("Aged Brie", 5, 6),]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(4);
@@ -66,7 +65,7 @@ describe('Testing Aged Brie: ', () => {
   })
 
   it('Quality increases by 2 when sellin is below 0', () => {
-    gildedRose = new Shop(updateDict, [new Item("Aged Brie", 0, 10),]);
+    gildedRose = new Shop([new Item("Aged Brie", 0, 10),]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(-1);
@@ -74,7 +73,7 @@ describe('Testing Aged Brie: ', () => {
   })
 
   it('Quality cannot be above 50', () => {
-    gildedRose = new Shop(updateDict, [new Item("Aged Brie", -2, 49),]);
+    gildedRose = new Shop([new Item("Aged Brie", -2, 49),]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(-3);
@@ -84,7 +83,7 @@ describe('Testing Aged Brie: ', () => {
 
 describe('Testing backstage: ', () => {
   it('Item quality increases by 1 when sellin is above 10', () => {
-    gildedRose = new Shop(updateDict, [new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),]);
+    gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(14);
@@ -92,7 +91,7 @@ describe('Testing backstage: ', () => {
   })
 
   it('Item quality increases by 2 when sellin is 10 or below', () => {
-    gildedRose = new Shop(updateDict, [new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30),]);
+    gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30),]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(9);
@@ -100,7 +99,7 @@ describe('Testing backstage: ', () => {
   })
 
   it('Item quality increases by 3 when sellin is 5 or below', () => {
-    gildedRose = new Shop(updateDict, [new Item("Backstage passes to a TAFKAL80ETC concert", 5, 40),]);
+    gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 40),]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(4);
@@ -108,7 +107,7 @@ describe('Testing backstage: ', () => {
   })
 
   it('Item quality cannot be above 50', () => {
-    gildedRose = new Shop(updateDict, [new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),]);
+    gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(4);
@@ -116,7 +115,7 @@ describe('Testing backstage: ', () => {
   })
 
   it('Item quality drops to 0 when sellin is 0 or less', () => {
-    gildedRose = new Shop(updateDict, [new Item("Backstage passes to a TAFKAL80ETC concert", 0, 40),]);
+    gildedRose = new Shop([new Item("Backstage passes to a TAFKAL80ETC concert", 0, 40),]);
     item = gildedRose.updateQuality()[0];
 
     expect(item.sellIn).toEqual(-1);
@@ -126,7 +125,7 @@ describe('Testing backstage: ', () => {
 
 describe('Testing conjured functionality: ', () => {
     it('item quality drops by 2 when sellin is above 0', () => {
-      gildedRose = new Shop(updateDict, [new Item("Conjured Mana Cake", 3, 6)]);
+      gildedRose = new Shop([new Item("Conjured Mana Cake", 3, 6)]);
       item = gildedRose.updateQuality()[0];
   
       expect(item.sellIn).toEqual(2);
@@ -134,7 +133,7 @@ describe('Testing conjured functionality: ', () => {
     })
   
     it('item quality drops by 4 when sellin is 0 or less', () => {
-      gildedRose = new Shop(updateDict, [new Item("Conjured Mana Cake", 0, 6)]);
+      gildedRose = new Shop([new Item("Conjured Mana Cake", 0, 6)]);
       item = gildedRose.updateQuality()[0];
   
       expect(item.sellIn).toEqual(-1);
@@ -142,10 +141,10 @@ describe('Testing conjured functionality: ', () => {
     })
   
     it('item quality cannot be below 0', () => {
-      gildedRose = new Shop(updateDict, [new Item("Conjured Mana Cake", -2, 2)]);
+      gildedRose = new Shop([new Item("Conjured Mana Cake", -2, 2)]);
       item = gildedRose.updateQuality()[0];
   
       expect(item.sellIn).toEqual(-3);
       expect(item.quality).toEqual(0); 
     })
-  })
+})

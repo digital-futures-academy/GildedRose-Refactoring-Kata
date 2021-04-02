@@ -1,23 +1,23 @@
+const itemDict = require('./itemDict');
+
 class Shop {
-    constructor(updateDict, items = []) {
-        this.updateDict = updateDict;
+    constructor(items = []) {
         this.items = items;
     }
 
     updateQuality() {
-        this.items.forEach(item => {
-            this.updateItem(item);
-        });
+        this.items.forEach(item => this.updateItem(item));
         return this.items;
     }
 
     updateItem(item) {
-        return this.updateDict[this.itemType(item)](item);
+        const updator = new itemDict[this.itemType(item)]();
+        return updator.update(item);
     }
 
     itemType(item) {
         let firstWord = item.name.split(/[^A-Za-z]/)[0].toLowerCase();
-        if(Object.keys(this.updateDict).includes(firstWord)) {
+        if(Object.keys(itemDict).includes(firstWord)) {
             return firstWord;
         } return 'regular';
     }

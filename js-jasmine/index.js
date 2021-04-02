@@ -15,7 +15,7 @@ const items = [
 ];
 
 const days = Number(process.argv[2]) || 2;
-const gildedRose = new Shop(updateDict, items);
+const gildedRose = new Shop(items);
 
 console.log("OMGHAI!");
 for (let day = 0; day < days; day++) {

@@ -5,12 +5,12 @@ Instructions:
 
 Domain Model:
 
-| Object   | Message   | Property              | Context | Output |
-|----------|-----------|-----------------------|---------|--------|
-| Item     |           | name, sellin, quality |         | object |
-| Shop     | update()  | this.items            |         | object |
-| Ordinary | update()  | this.item             |         | object |
-| Conjured | update () | this.item             |         | object |
-| Sulfuras | update () | this.item             |         | object |
-| Passes   | update()  | this.item             |         | object |
-| AgedBrie | update () | this.item             |         | object |
+| Object   | Message         | Property              | Context | Output |
+|----------|-----------------|-----------------------|---------|--------|
+| Item     |                 | name, sellin, quality |         | object |
+| Shop     | updateQuality() | this.items            |         | object |
+| Ordinary | update()        | this.item             |         | object |
+| Conjured | update()        | this.item             |         | object |
+| Sulfuras | update()        | this.item             |         | object |
+| Passes   | update()        | this.item             |         | object |
+| AgedBrie | update()        | this.item             |         | object |

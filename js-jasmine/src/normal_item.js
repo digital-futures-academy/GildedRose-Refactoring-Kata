@@ -1,7 +1,8 @@
-class NormalItem {
+const Item = require('../src/item');
+
+class NormalItem extends Item {
     constructor(sellIn, quality) {
-      this.sellIn = sellIn;
-      this.quality = quality;
+      super(sellIn, quality);
     }
   
     updateQuality() {

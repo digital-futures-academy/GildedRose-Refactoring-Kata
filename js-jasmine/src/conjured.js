@@ -1,7 +1,8 @@
-class Conjured {
+const Item = require('../src/item');
+
+class Conjured extends Item {
     constructor(sellIn, quality) {
-        this.sellIn = sellIn;
-        this.quality = quality;
+        super(sellIn, quality);
     }
     
     updateQuality() {

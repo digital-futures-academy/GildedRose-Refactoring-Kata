@@ -1,7 +1,8 @@
-class Sulfuras {
+const Item = require('../src/item');
+
+class Sulfuras extends Item {
     constructor(sellIn, quality) {
-      this.sellIn = sellIn
-      this.quality = quality
+      super(sellIn, quality);
     }
   
     updateQuality() {

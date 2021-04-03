@@ -1,7 +1,8 @@
-class AgedBrie {
+const Item = require('../src/item');
+
+class AgedBrie extends Item {
     constructor(sellIn, quality) {
-      this.sellIn = sellIn;
-      this.quality = quality;
+      super(sellIn, quality);
     }
 
     updateQuality() {

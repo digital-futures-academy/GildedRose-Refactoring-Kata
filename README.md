@@ -15,7 +15,7 @@ npx jasmine
 ```
 
 ### Requirements
-1.  All items have a SellIn value which denotes the number of days we have to sell the item
+1. All items have a SellIn value which denotes the number of days we have to sell the item
 2. All items have a Quality value which denotes how valuable the item is
 3. At the end of each day our system lowers both values for every item
 4. The Quality of an item is never negative

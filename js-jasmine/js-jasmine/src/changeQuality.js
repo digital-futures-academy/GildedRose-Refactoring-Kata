@@ -1,5 +1,5 @@
 class ChangeQuality{
-    valueIncrease(item, multiplier=1, qualityMax=50, increment=1){
+     valueIncrease(item, multiplier=1, qualityMax=50, increment=1){
            increment*=multiplier
            if (item.quality+increment<=qualityMax) {
                item.quality+=increment
@@ -12,7 +12,6 @@ class ChangeQuality{
 
      valueDecrease(item, multiplier=1,  qualityMin=0, increment=1){
            increment*=multiplier
-
            if (item.quality-increment>=qualityMin) {
                 item.quality-=increment
            }

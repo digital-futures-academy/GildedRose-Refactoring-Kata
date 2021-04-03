@@ -1,53 +1,31 @@
-class Shop {
-    constructor(functionClass, items=[]){
-        this.changeQuality=new functionClass
+const RegularItem=require('./regularItem')
+const BackstagePass=require('./backstagePass')
+const Sulfuras=require('./sulfuras')
+const AgedBrie=require('./agedBrie')
+
+const dict={'Aged Brie':AgedBrie, 'Sulfuras':Sulfuras, 'Backstage Pass':BackstagePass}
+
+
+class Shop{
+    constructor(items=[{name:'Cuppa Tea', sellIn: 10, quality: 10}, {name:'Aged Brie', sellIn: 10, quality: 10}, {name:'Backstage Pass', sellIn: 10, quality: 10}, {name:'Sulfuras', sellIn: 80, quality: 80}]){
         this.items=items
-      }
-
-    checkValidQuality(item, qualityMin=0, qualityMax=50){
-        if (item.quality>qualityMax || item.quality <qualityMin){
-              return false
-        } else {
-              return true
-        }
     }
+    updateQuality(){
+        for(let item of this.items){
+            if(item.name in dict){
+                let inst= new dict[item.name](item)
+                inst.valueChange()
+            } else{
+                let inst= new RegularItem(item)
+                inst.valueChange()
+            }
 
-    updateQualitySingleItem(item){
-         if (this.checkValidQuality(item)){
-              if (item.name==='Aged Brie'){
-                   this.changeQuality.valueIncrease(item)
-              } else if (item.name==='Backstage Pass'){
-                    if (item.sellIn<=0){
-                        item.quality=0
-                        item.sellIn-=1
-                    } else if (item.sellIn<= 5) {
-                        this.changeQuality.valueIncrease(item, 3)
-                    } else if (item.sellIn<=10){
-                        this.changeQuality.valueIncrease(item, 2)
-                    } else {
-                        this.changeQuality.valueIncrease(item)
-                    }
-              } else {
-                    if (item.sellIn< 0){
-                        this.changeQuality.valueDecrease(item, 2)
-                    } else {
-                        this.changeQuality.valueDecrease(item)
-                    }
-              }
-              return item.quality
-         }else {
-               if (item.name!=='Sulfuras'){
-                    throw new Error('Item quality value is out of bounds')
-               }
-           }
-    }
-
-    updateQualityAllItems(){
-        for (let item of this.items){
-            this.updateQualitySingleItem(item)
         }
         return this.items
-    }
 }
 
-module.exports = Shop
+}
+
+let s=new Shop()
+console.log(s.updateQuality())
+

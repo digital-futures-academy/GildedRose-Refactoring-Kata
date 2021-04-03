@@ -66,6 +66,14 @@ describe("Gilded Rose intial criteria checks:\n", function() {
     expect(items[0].quality).toEqual(49);
   });
 
+  it("The quality of an item cannot start negative:", function() {
+
+    const gildedRose = new Shop([ new Item('foo', 2, -1) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toEqual(0);
+  });
+
   it("Sulfuras has no sellIn:", function() {
 
     const gildedRose = new Shop([ new Item('Sulfuras, Hand of Ragnaros', 1, 80) ]);

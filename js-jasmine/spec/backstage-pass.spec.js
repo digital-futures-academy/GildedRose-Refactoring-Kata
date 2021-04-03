@@ -83,7 +83,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
     });
   
     it("should never start with a negative quality", function() {
-      let itemDouble = new ItemDouble('Backstage',2,-3)
+      let itemDouble = new ItemDouble('Backstage',12,-3)
       const backstagePass = new BackstagePass(itemDouble)
       let item = backstagePass.update()  
   

@@ -1,6 +1,6 @@
 var {Shop, Item} = require('../src/gilded_rose.js');
 
-describe("Gilded Rose intial criteria checks:\n", function() {
+describe("Gilded Rose initial criteria checks:\n", function() {
 
   it("should foo", function() {
 
@@ -38,7 +38,6 @@ describe("Gilded Rose intial criteria checks:\n", function() {
 
     const gildedRose = new Shop([ new Item("foo", -1, 2) ]);
     const items = gildedRose.updateQuality();
-    console.log(items)
 
     expect(items[0].quality).toEqual(0);
   });
@@ -47,7 +46,6 @@ describe("Gilded Rose intial criteria checks:\n", function() {
 
     const gildedRose = new Shop([ new Item('Aged Brie', 1, 1) ]);
     const items = gildedRose.updateQuality();
-    console.log(items)
 
     expect(items[0].quality).toEqual(2);
   });

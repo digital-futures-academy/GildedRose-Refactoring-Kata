@@ -1,5 +1,6 @@
 const AgedBrie = require('./aged-brie');
 const BackstagePass = require('./backstage-pass');
+const Conjured = require('./conjured');
 const Regular = require('./regular');
 const Sulfuras = require('./sulfuras');
 
@@ -16,6 +17,7 @@ const Inventory = {
   'Backstage passes to a TAFKAL80ETC concert': BackstagePass,
   'Sulfuras, Hand of Ragnaros': Sulfuras,
   'Regular': Regular,
+  'Conjured': Conjured,
 }
 
 class Shop {

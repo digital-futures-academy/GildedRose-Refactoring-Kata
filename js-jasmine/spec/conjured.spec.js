@@ -8,7 +8,7 @@ class ItemDouble {
     }
   }
 
-describe("Checking the requirements of a regular item:\n", function() {
+describe("Checking the requirements of a conjured item:\n", function() {
 
     it("Should decrease in quality by 2", function() {
         let itemDouble = new ItemDouble('Conjured',12,30)

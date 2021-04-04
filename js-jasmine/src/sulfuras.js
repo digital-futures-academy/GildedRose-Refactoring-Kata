@@ -3,7 +3,12 @@ class Sulfuras{
     this.items = item
     }
     
-    update() {}
+    update() {
+        if (this.items.quality != 80) {
+        this.items.quality = 80;
+        }
+    return [this.items]
+    }
 
 }
 

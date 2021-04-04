@@ -1,19 +1,19 @@
 class AgedBrie {
-    constructor(items = []) {
-    this.items = items
-    }
+  constructor(items = []) {
+    this.items = items;
+  }
 
-    updateQuality() {
-        for (var i = 0; i < this.items.length; i++) {
-            if(this.items[i].name === 'Aged Brie') {
-                if(this.items[i].quality > 0 && this.items[i].quality < 50) {
-                this.items[i].quality++
-                }
-            }
-            this.items[i].sellIn--
+  updateQuality() {
+    for (var i = 0; i < this.items.length; i++) {
+      if(this.items[i].name === 'Aged Brie') {
+        if(this.items[i].quality > 0 && this.items[i].quality < 50) {
+          this.items[i].quality++;
         }
-        return this.items
+      }
+      this.items[i].sellIn--;
     }
+    return this.items;
+  }
 }
 
 module.exports = AgedBrie;

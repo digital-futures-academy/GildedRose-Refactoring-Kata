@@ -18,7 +18,7 @@ describe("Gilded Rose initial criteria checks:\n", function() {
     expect(items[0].quality).toBeGreaterThan(-1);
   });
 
-  it("Lower sellIN for standard item at end of day:", function() {
+  it("Lower sellIn for standard item at end of day:", function() {
 
     const gildedRose = new Shop([ new Item("foo", 1, 0) ]);
     const items = gildedRose.updateQuality();
@@ -50,6 +50,30 @@ describe("Gilded Rose initial criteria checks:\n", function() {
     expect(items[0].quality).toEqual(2);
   });
 
+  it("Aged brie sellIn reduces by 1:", function() {
+
+    const gildedRose = new Shop([ new Item('Aged Brie', 1, 1) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].sellIn).toEqual(0);
+  });
+
+  it("Aged brie cannot start with a negative quality:", function() {
+
+    const gildedRose = new Shop([ new Item('Aged Brie', 1, -5) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toEqual(1);
+  });
+
+  it("Aged brie cannot start with a quality above 50:", function() {
+
+    const gildedRose = new Shop([ new Item('Aged Brie', 1, 56) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toEqual(50);
+  });
+
   it("The quality of an item is never more than 50:", function() {
 
     const gildedRose = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 2, 50) ]);
@@ -79,7 +103,7 @@ describe("Gilded Rose initial criteria checks:\n", function() {
     const gildedRose = new Shop([ new Item('Sulfuras, Hand of Ragnaros', 1, 80) ]);
     const items = gildedRose.updateQuality();
 
-    expect(items[0].sellIn).toEqual(1);
+    expect(items[0].sellIn).toEqual(0);
   });
 
   it("Sulfuras never loses quality:", function() {
@@ -138,6 +162,14 @@ describe("Gilded Rose initial criteria checks:\n", function() {
     expect(items[0].quality).toEqual(0);
   });
 
+  it("Backstage passes sellIn drops by 1:", function() {
+
+    const gildedRose = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 6, 5) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].sellIn).toEqual(5);
+  });
+
   it("The quality of an item is never more than 50 no.2:", function() {
 
     const gildedRose = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 2, 49) ]);
@@ -180,6 +212,34 @@ describe("Conjured item checks:\n", function() {
     const items = gildedRose.updateQuality();
 
     expect(items[0].quality).toEqual(0);
+  });
+
+  it("Quality cannot stat at more than 50:", function() {
+
+    const gildedRose = new Shop([ new Item('Conjured', 5, 55) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toEqual(48);
+  });
+
+  it("Quality cannot start at less than 0:", function() {
+
+    const gildedRose = new Shop([ new Item('Conjured', 6, -5) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toEqual(0);
+  });
+
+});
+
+describe("Checking array of multiple items:\n", function() {
+
+  it("test one:", function() {
+
+    const gildedRose = new Shop([ new Item('Conjured', 2, 3), new Item('anything', 6, 5) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(JSON.stringify(items)).toEqual(JSON.stringify([Item({ name: 'Conjured', sellIn: 1, quality: 1 }),Item({ name: 'anything', sellIn: 5, quality: 4 })]));
   });
 
 });

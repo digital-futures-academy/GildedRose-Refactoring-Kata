@@ -3,14 +3,7 @@ const BackstagePass = require('./backstage-pass');
 const Conjured = require('./conjured');
 const Regular = require('./regular');
 const Sulfuras = require('./sulfuras');
-
-class Item {
-  constructor(name, sellIn, quality){
-    this.name = name;
-    this.sellIn = sellIn;
-    this.quality = quality;
-  }
-}
+const Item = require('./item');
 
 const Inventory = {
   'Aged Brie': AgedBrie,

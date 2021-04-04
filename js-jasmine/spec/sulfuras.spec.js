@@ -11,7 +11,7 @@ class ItemDouble {
 describe("Checking Sulfuras class requirements:\n", function() {
 
     it("should only have a quality of 80:", function() {
-        let itemDouble = new ItemDouble('Sulfuras',2,12)
+        let itemDouble = new ItemDouble('Sulfuras',0,12)
         const sulfuras = new Sulfuras(itemDouble)
         let item = sulfuras.update()
   
@@ -19,7 +19,7 @@ describe("Checking Sulfuras class requirements:\n", function() {
     });
 
     it("should only have a quality of 80 part 2:", function() {
-        let itemDouble = new ItemDouble('Sulfuras',5,93)
+        let itemDouble = new ItemDouble('Sulfuras',0,93)
         const sulfuras = new Sulfuras(itemDouble)
         let item = sulfuras.update()
   
@@ -27,15 +27,23 @@ describe("Checking Sulfuras class requirements:\n", function() {
     });
 
     it("sellIn stays the same", function() {
-        let itemDouble = new ItemDouble('Sulfuras',5,80)
+        let itemDouble = new ItemDouble('Sulfuras',0,80)
         const sulfuras = new Sulfuras(itemDouble)
         let item = sulfuras.update() 
   
-      expect(item.sellIn).toEqual(5);
+      expect(item.sellIn).toEqual(0);
     });
 
+    it("sellIn is always 0", function() {
+      let itemDouble = new ItemDouble('Sulfuras',5,80)
+      const sulfuras = new Sulfuras(itemDouble)
+      let item = sulfuras.update() 
+
+    expect(item.sellIn).toEqual(0);
+  });
+
     it("should keep quality at 80", function() {
-        let itemDouble = new ItemDouble('Sulfuras',6,80)
+        let itemDouble = new ItemDouble('Sulfuras',0,80)
         const sulfuras = new Sulfuras(itemDouble)
         let item = sulfuras.update()
 

@@ -6,6 +6,13 @@
 This section will outline my approach to refactoring the Gilded Rose Challenge. I first read through the original README (now oldREADME.md) and I also read through the links it provides to external resources. Following this I read through the outlined requirements and analsyed the src code accordingly.
 My next step was to write test cases for the src code using jasmine and following this I went through a process of refactoring by creating new classes (i.e. for the item, the shop and each individual item described). I went through this process of refactoring/testing untill I was able to make as many tests work as possible.
 
+```
+Next Steps: (following peer review)
+1. Update failing tests.
+2. Create invididual specs for each item.
+3. Create shop class that carries out the for loop and remove this from item classes.
+```
+
 ## Instructions
 
 ```

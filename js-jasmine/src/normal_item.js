@@ -11,7 +11,7 @@ class NormalItem {
                 if(this.items[i].sellIn > 0) {
                     this.items[i].quality--
                 }
-                if(this.items[i].sellIn < 0) {
+                if(this.items[i].sellIn < 0 && this.items[i].quality > 0) {
                     this.items[i].quality--
                     this.items[i].quality--
                 }

@@ -1,30 +1,30 @@
 class BackstagePass{
     constructor(item){
-    this.items = item
+    this.item = item
     }
     
     update() {
         
-            if (this.items.quality < 0) {
-            this.items.quality = 0;
+            if (this.item.quality < 0) {
+            this.item.quality = 0;
             }
-            if (this.items.quality > 50){
-                this.items.quality = 50
+            if (this.item.quality > 50){
+                this.item.quality = 50
             }
-            if (this.items.quality < 50) {
-                this.items.quality++;
+            if (this.item.quality < 50) {
+                this.item.quality++;
             }
-            if (this.items.sellIn < 11 && this.items.quality < 50) {
-                this.items.quality++;
+            if (this.item.sellIn < 11 && this.item.quality < 50) {
+                this.item.quality++;
               }
-            if (this.items.sellIn < 6 && this.items.quality < 50) {
-                this.items.quality++;
+            if (this.item.sellIn < 6 && this.item.quality < 50) {
+                this.item.quality++;
             }
-            this.items.sellIn--;
-            if (this.items.sellIn < 0) {
-                this.items.quality = 0;
+            this.item.sellIn--;
+            if (this.item.sellIn < 0) {
+                this.item.quality = 0;
             }
-        return [this.items];
+        return this.item;
               
     }
 

@@ -15,7 +15,7 @@ describe("Checking Aged Brie class requirements:\n", function() {
         const agedBrie = new AgedBrie(itemDouble)
         let item = agedBrie.update()
   
-      expect(item[0].quality).toEqual(49);
+      expect(item.quality).toEqual(49);
     });
 
     it("should keep the quality at 50", function() {
@@ -23,7 +23,7 @@ describe("Checking Aged Brie class requirements:\n", function() {
         const agedBrie = new AgedBrie(itemDouble)
         let item = agedBrie.update()  
   
-      expect(item[0].quality).toEqual(50);
+      expect(item.quality).toEqual(50);
     });
 
     it("should reduce sellIn by 1", function() {
@@ -31,7 +31,7 @@ describe("Checking Aged Brie class requirements:\n", function() {
         const agedBrie = new AgedBrie(itemDouble)
         let item = agedBrie.update()  
   
-      expect(item[0].sellIn).toEqual(1);
+      expect(item.sellIn).toEqual(1);
     });
 
     it("should never start with a quality more than 50", function() {
@@ -39,7 +39,7 @@ describe("Checking Aged Brie class requirements:\n", function() {
       const agedBrie = new AgedBrie(itemDouble)
       let item = agedBrie.update()  
 
-    expect(item[0].quality).toEqual(50);
+    expect(item.quality).toEqual(50);
   });
 
   it("should never start with a negative quality", function() {
@@ -47,7 +47,7 @@ describe("Checking Aged Brie class requirements:\n", function() {
     const agedBrie = new AgedBrie(itemDouble)
     let item = agedBrie.update()  
 
-  expect(item[0].quality).toEqual(1);
+  expect(item.quality).toEqual(1);
 });
 
 });

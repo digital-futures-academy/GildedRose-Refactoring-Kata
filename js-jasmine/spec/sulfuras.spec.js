@@ -15,7 +15,7 @@ describe("Checking Sulfuras class requirements:\n", function() {
         const sulfuras = new Sulfuras(itemDouble)
         let item = sulfuras.update()
   
-      expect(item[0].quality).toEqual(80);
+      expect(item.quality).toEqual(80);
     });
 
     it("should only have a quality of 80 part 2:", function() {
@@ -23,7 +23,7 @@ describe("Checking Sulfuras class requirements:\n", function() {
         const sulfuras = new Sulfuras(itemDouble)
         let item = sulfuras.update()
   
-      expect(item[0].quality).toEqual(80);
+      expect(item.quality).toEqual(80);
     });
 
     it("sellIn stays the same", function() {
@@ -31,7 +31,7 @@ describe("Checking Sulfuras class requirements:\n", function() {
         const sulfuras = new Sulfuras(itemDouble)
         let item = sulfuras.update() 
   
-      expect(item[0].sellIn).toEqual(5);
+      expect(item.sellIn).toEqual(5);
     });
 
     it("should keep quality at 80", function() {
@@ -39,7 +39,7 @@ describe("Checking Sulfuras class requirements:\n", function() {
         const sulfuras = new Sulfuras(itemDouble)
         let item = sulfuras.update()
 
-    expect(item[0].quality).toEqual(80);
+    expect(item.quality).toEqual(80);
   });
 
 });

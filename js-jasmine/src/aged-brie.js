@@ -1,20 +1,20 @@
 class AgedBrie{
     constructor(item){
-    this.items = item
+    this.item = item
     }
     
     update() {
-        this.items.sellIn--;
-        if (this.items.quality < 0) {
-        this.items.quality = 0;
+        this.item.sellIn--;
+        if (this.item.quality < 0) {
+        this.item.quality = 0;
         }
-        if (this.items.quality > 50){
-            this.items.quality = 50
+        if (this.item.quality > 50){
+            this.item.quality = 50
         }
-        if (this.items.quality < 50) {
-            this.items.quality++;
+        if (this.item.quality < 50) {
+            this.item.quality++;
           }
-    return [this.items]
+    return this.item
         }
 
 }

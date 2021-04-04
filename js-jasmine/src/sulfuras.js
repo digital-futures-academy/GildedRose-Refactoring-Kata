@@ -1,13 +1,13 @@
 class Sulfuras{
     constructor(item){
-    this.items = item
+    this.item = item
     }
     
     update() {
-        if (this.items.quality != 80) {
-        this.items.quality = 80;
+        if (this.item.quality != 80) {
+        this.item.quality = 80;
         }
-    return [this.items]
+    return this.item
     }
 
 }

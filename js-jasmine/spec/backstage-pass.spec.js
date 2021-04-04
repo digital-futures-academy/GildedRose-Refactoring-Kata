@@ -15,7 +15,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
         const backstagePass = new BackstagePass(itemDouble)
         let item = backstagePass.update()
   
-      expect(item[0].quality).toEqual(49);
+      expect(item.quality).toEqual(49);
     });
 
     it("should keep the quality at 50", function() {
@@ -23,7 +23,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
         const backstagePass = new BackstagePass(itemDouble)
         let item = backstagePass.update() 
   
-      expect(item[0].quality).toEqual(50);
+      expect(item.quality).toEqual(50);
     });
 
     it("should increase the quality by 2", function() {
@@ -31,7 +31,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
         const backstagePass = new BackstagePass(itemDouble)
         let item = backstagePass.update()
   
-      expect(item[0].quality).toEqual(48);
+      expect(item.quality).toEqual(48);
     });
 
     it("should keep the quality at 50", function() {
@@ -39,7 +39,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
         const backstagePass = new BackstagePass(itemDouble)
         let item = backstagePass.update() 
   
-      expect(item[0].quality).toEqual(50);
+      expect(item.quality).toEqual(50);
     });
 
     it("should increase the quality by 3", function() {
@@ -47,7 +47,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
         const backstagePass = new BackstagePass(itemDouble)
         let item = backstagePass.update()
   
-      expect(item[0].quality).toEqual(33);
+      expect(item.quality).toEqual(33);
     });
 
     it("should keep the quality at 50", function() {
@@ -55,7 +55,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
         const backstagePass = new BackstagePass(itemDouble)
         let item = backstagePass.update() 
   
-      expect(item[0].quality).toEqual(50);
+      expect(item.quality).toEqual(50);
     });
 
     it("Quality should be 0", function() {
@@ -63,7 +63,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
         const backstagePass = new BackstagePass(itemDouble)
         let item = backstagePass.update()
   
-      expect(item[0].quality).toEqual(0);
+      expect(item.quality).toEqual(0);
     });
 
     it("sell in should decrease by 1", function() {
@@ -71,7 +71,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
         const backstagePass = new BackstagePass(itemDouble)
         let item = backstagePass.update() 
   
-      expect(item[0].sellIn).toEqual(11);
+      expect(item.sellIn).toEqual(11);
     });
 
     it("should never start with a quality more than 50", function() {
@@ -79,7 +79,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
         const backstagePass = new BackstagePass(itemDouble)
         let item = backstagePass.update()  
   
-      expect(item[0].quality).toEqual(50);
+      expect(item.quality).toEqual(50);
     });
   
     it("should never start with a negative quality", function() {
@@ -87,7 +87,7 @@ describe("Checking the requirements of backstage pass:\n", function() {
       const backstagePass = new BackstagePass(itemDouble)
       let item = backstagePass.update()  
   
-    expect(item[0].quality).toEqual(1);
+    expect(item.quality).toEqual(1);
     });
 
 });

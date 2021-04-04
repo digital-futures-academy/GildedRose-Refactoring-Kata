@@ -15,7 +15,7 @@ describe("Checking the requirements of a regular item:\n", function() {
         const regular = new Regular(itemDouble)
         let item = regular.update()
   
-      expect(item[0].quality).toEqual(29);
+      expect(item.quality).toEqual(29);
     });
 
     it("Should decrease sellIn by 1", function() {
@@ -23,7 +23,7 @@ describe("Checking the requirements of a regular item:\n", function() {
         const regular = new Regular(itemDouble)
         let item = regular.update()
   
-      expect(item[0].sellIn).toEqual(11);
+      expect(item.sellIn).toEqual(11);
     });
 
     it("Should decrease the quality by 2", function() {
@@ -31,7 +31,7 @@ describe("Checking the requirements of a regular item:\n", function() {
         const regular = new Regular(itemDouble)
         let item = regular.update()
   
-      expect(item[0].quality).toEqual(28);
+      expect(item.quality).toEqual(28);
     });
 
     it("Quality should never start at more than 50", function() {
@@ -39,7 +39,7 @@ describe("Checking the requirements of a regular item:\n", function() {
         const regular = new Regular(itemDouble)
         let item = regular.update()
   
-      expect(item[0].quality).toEqual(49);
+      expect(item.quality).toEqual(49);
     });
 
     it("Quality should never be less than zero", function() {
@@ -47,7 +47,7 @@ describe("Checking the requirements of a regular item:\n", function() {
         const regular = new Regular(itemDouble)
         let item = regular.update()
   
-      expect(item[0].quality).toEqual(0);
+      expect(item.quality).toEqual(0);
     });
 
     it("Quality should never start at less than zero", function() {
@@ -55,7 +55,7 @@ describe("Checking the requirements of a regular item:\n", function() {
         const regular = new Regular(itemDouble)
         let item = regular.update()
   
-      expect(item[0].quality).toEqual(0);
+      expect(item.quality).toEqual(0);
     });
 
 });

@@ -13,6 +13,8 @@ Only the js-jasmine has been refactored so far. Within the js-jasmine there are 
 To run the tests you can use npm test or npx jasmine. To test a specific test navigate to the spec file and put f before the file and then run either command. 
 
 ## Example code 
+
+``` javascript
 var Shop = require('../src/shop.js');
 var Item = require('../src/item');
 const gildedRose = new Shop([new Item('Conjured', 0, 4), new Item('Aged Brie', 1, 49)]);
@@ -24,6 +26,6 @@ console.log(items);
   Item { name: 'Conjured', sellIn: -1, quality: 0 },
   Item { name: 'Aged Brie', sellIn: 0, quality: 50 }
 ]
-
+```
 
 

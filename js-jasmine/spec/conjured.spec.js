@@ -1,17 +1,16 @@
 var Conjured = require('../src/conjured.js');
 var Item = require('../src/item.js');
 
-xdescribe('Conjured', function() {
+describe('Conjured', function() {
 
     it('Conjured items deplete at faster rates', function() {
-        const gildedRose = new Shop([new Item('Conjured', 1, 4)]);
+        const gildedRose = new Conjured(new Item('Conjured', 1, 4));
         const items = gildedRose.updateQuality();
-        expect(items[0].quality).toEqual(2); // failing test
+        expect(items.quality).toEqual(2);
     })
-
-    it('Conjured items deplete at faster rates', function() {
-        const gildedRose = new Shop([new Item('Conjured', 0, 4)]);
+    it('Conjured items still decrease in sellIn value', function() {
+        const gildedRose = new Conjured(new Item('Conjured', 5, 4));
         const items = gildedRose.updateQuality();
-        expect(items[0].quality).toEqual(0);
+        expect(items.sellIn).toEqual(4);
     })
 })

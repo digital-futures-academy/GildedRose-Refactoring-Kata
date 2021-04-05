@@ -4,12 +4,12 @@ class AgedBrie {
         this.items = items
     }
 
-    qualityUpdate() {
-        for (var i = 0; i < this.items.length; i++) {
-            if (this.items[i].quality < 50) {
-                this.items[i].quality += 1
-            }
-            this.items[i].sellIn -= 1
+    updateQuality() {
+        if (this.items.quality < 50) {
+            this.items.quality += 1
+        }
+        if (this.items.sellIn !== 0) {
+            this.items.sellIn -= 1
         }
         return this.items
     }

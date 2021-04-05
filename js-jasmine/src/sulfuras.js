@@ -1,10 +1,16 @@
 class Sulfuras {
-    constructor(item = []) {
-        this.item = item
+    constructor(items) {
+        this.items = items
     }
 
     updateQuality() {
-        //"Sulfuras", being a legendary item, never has to be sold or decreases in Quality
+        if (this.items.quality !== 80) {
+            this.items.quality = 80
+        }
+        if (this.items.sellIn !== 0) {
+            this.items.sellIn = 0
+        }
+        return this.items
     }
 }
 module.exports = Sulfuras

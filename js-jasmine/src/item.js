@@ -1,4 +1,3 @@
-const Shop = require('../src/shop.js')
 class Item {
     constructor(name, sellIn, quality) {
         this.name = name;

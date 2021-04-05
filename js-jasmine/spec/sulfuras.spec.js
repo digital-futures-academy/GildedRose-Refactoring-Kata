@@ -1,11 +1,11 @@
 var Sulfuras = require('../src/sulfuras.js');
 var Item = require('../src/item.js');
 
-xdescribe('sulfuras', function() {
+describe('sulfuras', function() {
     it('Sulfuras, Hand of Ragnaros never decreases in sellIn or quality', function() {
-        const gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', 1, 80)]);
+        const gildedRose = new Sulfuras(new Item('Sulfuras, Hand of Ragnaros', 1, 80));
         const items = gildedRose.updateQuality();
-        expect(items[0].quality).toEqual(80);
-        expect(items[0].sellIn).toEqual(1);
+        expect(items.quality).toEqual(80);
+        expect(items.sellIn).toEqual(0);
     })
 })

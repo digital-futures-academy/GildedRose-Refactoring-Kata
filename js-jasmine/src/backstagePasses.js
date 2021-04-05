@@ -1,12 +1,26 @@
 class BackstagePass {
-    constructor(item = []) {
-        this.item = item
+    constructor(items) {
+        this.items = items
     }
 
     updateQuality() {
-        //"Backstage passes", like aged brie, increases in Quality as its SellIn value approaches; 
-        //Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
-        //Quality drops to 0 after the concert 
+        if (this.items.quality === 50) {
+            this.items.quality = 50
+            this.items.sellIn -= 1
+        } else if (this.items.sellIn === 0) {
+            this.items.quality = 0
+            this.items.sellIn -= 1
+        } else if (this.items.sellIn <= 5) {
+            this.items.quality += 3
+            this.items.sellIn -= 1
+        } else if (this.items.sellIn <= 10) {
+            this.items.quality += 2
+            this.items.sellIn -= 1
+        } else if (this.items.sellIn > 0) {
+            this.items.quality += 1
+            this.items.sellIn -= 1
+        }
+        return this.items
     }
 }
 

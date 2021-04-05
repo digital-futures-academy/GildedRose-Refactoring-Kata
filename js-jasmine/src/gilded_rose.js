@@ -11,7 +11,7 @@ const Inventory = {
   'Sulfuras, Hand of Ragnaros': Sulfuras,
   'Regular': Regular,
   'Conjured': Conjured,
-}
+};
 
 class Shop {
   constructor(items=[]){
@@ -22,11 +22,11 @@ class Shop {
       const itemClass = Inventory[this.items[i].name] || Inventory['Regular'];
       const item = new itemClass(this.items[i]);
       item.update();
-      }
+    }
     return this.items;
   }
 }
 module.exports = {
   Item,
   Shop
-}
+};

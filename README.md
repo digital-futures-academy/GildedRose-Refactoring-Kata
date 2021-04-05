@@ -1,68 +1,115 @@
-# Gilded Rose Refactoring Kata
+# Mousinho gilded rose challenge
+My current attempt to refactor the guilded rose problem. Practice at analysing legacy code, creating a domain model, test driven development, and OOP principles.
 
-This Kata was originally created by Terry Hughes (http://twitter.com/TerryHughes). It is already on GitHub [here](https://github.com/NotMyself/GildedRose). See also [Bobby Johnson's description of the kata](http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/).
+## Directory Information
+To access the edited files in this directory, navigate to the [js-jasmine](https://github.com/AntMousinho/gilded-rose-refactoring-challenge/tree/master/js-jasmine) folder.
 
-I translated the original C# into a few other languages, (with a little help from my friends!), and slightly changed the starting position. This means I've actually done a small amount of refactoring already compared with the original form of the kata, and made it easier to get going with writing tests by giving you one failing unit test to start with. I also added test fixtures for Text-Based approval testing with TextTest (see [the TextTests](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/master/texttests))
+Within this directory the gilded rose functionality has been split beween multiple classes. The [Shop](https://github.com/AntMousinho/gilded-rose-refactoring-challenge/blob/master/js-jasmine/src/shop.js) class maintains its original funcitonality, holding an array of Items and updating them. The `Shop` class accesses a dictionary of classes, [itemDict](https://github.com/AntMousinho/gilded-rose-refactoring-challenge/blob/master/js-jasmine/src/itemDict.js), that each hold the functionality to update the various item types found at the gilded rose. 
 
-As Bobby Johnson points out in his article ["Why Most Solutions to Gilded Rose Miss The Bigger Picture"](http://iamnotmyself.com/2012/12/07/why-most-solutions-to-gilded-rose-miss-the-bigger-picture), it'll actually give you
-better practice at handling a legacy code situation if you do this Kata in the original C#. However, I think this kata
-is also really useful for practicing writing good tests using different frameworks and approaches, and the small changes I've made help with that. I think it's also interesting to compare what the refactored code and tests look like in different programming languages.
+Each of these classes can be found within the [itemUpdateClasses Directory](https://github.com/AntMousinho/gilded-rose-refactoring-challenge/tree/master/js-jasmine/src/itemUpdateClasses).
 
-I use this kata as part of my work as a technical coach. I wrote a lot about the coaching method I use in this book [Technical Agile Coaching with the Samman method](https://leanpub.com/techagilecoach). A while back I wrote this article ["Writing Good Tests for the Gilded Rose Kata"](http://coding-is-like-cooking.info/2013/03/writing-good-tests-for-the-gilded-rose-kata/) about how you could use this kata in a [coding dojo](https://leanpub.com/codingdojohandbook).
+## Quick setup
+```
+$ git clone git@github.com:AntMousinho/mousinho-gilded-rose-challenge.git
 
-## How to use this Kata
+# Move to js-jasmine directory
+$ cd js-jasmine
 
-The simplest way is to just clone the code and start hacking away improving the design. You'll want to look at the ["Gilded Rose Requirements"](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/master/GildedRoseRequirements.txt) which explains what the code is for. I strongly advise you that you'll also need some tests if you want to make sure you don't break the code while you refactor.
+$ npm install
+```
 
-You could write some unit tests yourself, using the requirements to identify suitable test cases. I've provided a failing unit test in a popular test framework as a starting point for most languages.
+<p>&nbsp;</p>
 
-Alternatively, use the "Text-Based" tests provided in this repository. (Read more about that in the next section)
+## To run tests
+```
+# Move to js-jasmine directory
+$ cd js-jasmine
 
-Whichever testing approach you choose, the idea of the exercise is to do some deliberate practice, and improve your skills at designing test cases and refactoring. The idea is not to re-write the code from scratch, but rather to practice designing tests, taking small steps, running the tests often, and incrementally improving the design. 
+# Run Tests
+$ npx jasmine
+# or
+$ npm test
+```
 
-### Gilded Rose Requirements in other languages 
+<p>&nbsp;</p>
 
-- [English](GildedRoseRequirements.txt)
-- [Español](GildedRoseRequirements_es.md)
-- [Français](GildedRoseRequirements_fr.md)
-- [日本語](GildedRoseRequirements_jp.md)
-- [Português](GildedRoseRequirements_pt-BR.md)
-- [Русский](GildedRoseRequirements_ru.txt)
-- [ไทย](GildedRoseRequirements_th.md)
-- [中文](GildedRoseRequirements_zh.txt)
+## Running the programme
+To access this directory and run the programme correctly first thing to do is move into the 'js-jasmine' directory.
+
+Within `index.js` there is an example already set up with an item list that can be tested through the command line with the number of days you want to pass.
+```
+$ node index.js [number of days]
+```
+
+An example input would be:
+```
+$ node index.js 3
+```
+
+Which produces an output of:
+```
+OMGHAI!
+-------- day 0 --------
+name, sellIn, quality
++5 Dexterity Vest, 10, 20
+Aged Brie, 1, 0
+Elixir of the Mongoose, 5, 1
+Sulfuras, Hand of Ragnaros, 0, 80
+Sulfuras, Hand of Ragnaros, -1, 80
+Backstage passes to a TAFKAL80ETC concert, 15, 20
+Backstage passes to a TAFKAL80ETC concert, 10, 39
+Backstage passes to a TAFKAL80ETC concert, 5, 45
+Conjured Mana Cake, 1, 9
+-------- day 1 --------
+name, sellIn, quality
++5 Dexterity Vest, 9, 19
+Aged Brie, 0, 1
+Elixir of the Mongoose, 4, 0
+Sulfuras, Hand of Ragnaros, 0, 80
+Sulfuras, Hand of Ragnaros, -1, 80
+Backstage passes to a TAFKAL80ETC concert, 14, 21
+Backstage passes to a TAFKAL80ETC concert, 9, 41
+Backstage passes to a TAFKAL80ETC concert, 4, 48
+Conjured Mana Cake, 0, 7
+-------- day 2 --------
+name, sellIn, quality
++5 Dexterity Vest, 8, 18
+Aged Brie, -1, 3
+Elixir of the Mongoose, 3, 0
+Sulfuras, Hand of Ragnaros, 0, 80
+Sulfuras, Hand of Ragnaros, -1, 80
+Backstage passes to a TAFKAL80ETC concert, 13, 22
+Backstage passes to a TAFKAL80ETC concert, 8, 43
+Backstage passes to a TAFKAL80ETC concert, 3, 50
+Conjured Mana Cake, -1, 3
+```
 
 
-## Text-Based Approval Testing
+<p>&nbsp;</p>
 
-This code comes with comprehensive tests that use this approach. For information about how to run them, see the [texttests README](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/master/texttests)
-
-## Translating this code
-
-More translations are most welcome! I'm very open for pull requests that translate the starting position into additional languages. 
-
-Please note a translation should ideally include:
-
-- a translation of the production code for 'update_quality' and Item
-- one failing unit test complaining that "fixme" != "foo"
-- a TextTest fixture, ie a command-line program that runs update_quality on the sample data for the number of days specified.
-
-Please don't write too much code in the starting position or add too many unit tests. The idea with the one failing unit test is to tempt people to work out how to fix it, discover it wasn't that hard, and now they understand what this test is doing they realize they can improve it.  
-
-If your programming language doesn't have an easy way to add a command-line interface, then the TextTest fixture is probably not necessary.
-
-## Better Code Hub
-
-I analysed this repo according to the clean code standards on [Better Code Hub](https://bettercodehub.com) just to get an independent opinion of how bad the code is. Perhaps unsurprisingly, the compliance score is low!
-
-[![BCH compliance](https://bettercodehub.com/edge/badge/emilybache/GildedRose-Refactoring-Kata?branch=master)](https://bettercodehub.com/) 
-
-#### Standard
-- [ ] Meets the spec
-- [ ] Developed test-first - tests written to cover existing functionality.
-- [ ] Passes tests and code is linted
-- [ ] Methods are extracted one by one from the nested `if` statement per item type
-- [ ] Classes that encapsulate item update procedures are extracted per item type
-- [ ] Shop#updateQuality() has no `if() {}` statements
-
-#### Extended
-- [ ] See a coach!
+## Approach
+- After reading the requirements, I made a quick note of the criteria and edits that each item type would undergo
+- Looked through the original gilded file line by line, making notes on how the original code worked and what item each line was altering.
+- Wrote specs for the `Shop` class. Testing each item type that was identified in the requirements. These original tests can be found between lines 7 and 125 of [shop.spec.js](https://github.com/AntMousinho/mousinho-gilded-rose-challenge/blob/main/spec/shop.spec.js) file.
+    -   With the original guilded rose code, all these tests passed
+- Began editing the Shop class `updateItems()` function. Started with simple line edits. e.g.
+```js
+// Original
+this.items[i].quality = this.items[i].quality + 1;
+// Edit
+this.items[i].quality ++;
+```
+- Able to extract checks that persisted throughout the funtion
+    - Any checks for sulfuras could be extracted and placed above the rest of the code
+    ```js
+    if(this.items[i].name === 'Sulfuras, Hand of Ragnaros') break;
+    ```
+- The `Shop` class started becoming separated into if statements that checked for the item name, then apply all the appropriate changes to that item before moving to the next item type
+- Extracted the if statements into their own functions. e.g. `updateBrie()`, `updateBackstage()` and `updateRegular()`
+    - Used a switch statement within `updateItem()` that selected the correct function to use on the current item
+- With every step I kept running my specs to make sure the class was still running as expected
+- Thought to extract item type functions into an object within `updateDict.js`
+    - Wrote specs for this object's expected outputs
+    - Extracted the methods so that the Shop class could select the appropriate method to use depending on the first word of the item.
+- Extracted the funcitonality of each item type into their own classes (found within `src/itemUpdateClasses`).
+	- the item dictionary now refers to each type of item class to choose the correct update method to call

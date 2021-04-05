@@ -17,6 +17,7 @@ class Shop {
   constructor(items=[]){
     this.items = items;
   }
+
   updateQuality() {
     for (var i = 0; i < this.items.length; i++) {
       const itemClass = Inventory[this.items[i].name] || Inventory['Regular'];
@@ -25,7 +26,9 @@ class Shop {
     }
     return this.items;
   }
+
 }
+
 module.exports = {
   Item,
   Shop

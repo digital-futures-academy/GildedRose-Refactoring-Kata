@@ -11,6 +11,7 @@ class BackstagePass{
     if (this.item.quality > 50){
       this.item.quality = 50;
     }
+
     if (this.item.quality < 50) {
       this.item.quality++;
     }
@@ -20,7 +21,9 @@ class BackstagePass{
     if (this.item.sellIn < 6 && this.item.quality < 50) {
       this.item.quality++;
     }
+
     this.item.sellIn--;
+    
     if (this.item.sellIn < 0) {
       this.item.quality = 0;
     }

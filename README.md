@@ -10,7 +10,11 @@ Each of these classes can be found within the [itemUpdateClasses Directory](http
 
 ## Quick setup
 ```
-$ git clone git@github.com:AntMousinho/gilded-rose-refactoring-challenge.git
+$ git clone git@github.com:AntMousinho/mousinho-gilded-rose-challenge.git
+
+# Move to js-jasmine directory
+$ cd js-jasmine
+
 $ npm install
 ```
 
@@ -18,6 +22,10 @@ $ npm install
 
 ## To run tests
 ```
+# Move to js-jasmine directory
+$ cd js-jasmine
+
+# Run Tests
 $ npx jasmine
 # or
 $ npm test
@@ -26,6 +34,8 @@ $ npm test
 <p>&nbsp;</p>
 
 ## Running the programme
+To access this directory and run the programme correctly first thing to do is move into the 'js-jasmine' directory.
+
 Within `index.js` there is an example already set up with an item list that can be tested through the command line with the number of days you want to pass.
 ```
 $ node index.js [number of days]

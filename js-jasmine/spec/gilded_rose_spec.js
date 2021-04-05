@@ -239,7 +239,55 @@ describe("Checking array of multiple items:\n", function() {
     const gildedRose = new Shop([ new Item('Conjured', 2, 3), new Item('anything', 6, 5) ]);
     const items = gildedRose.updateQuality();
 
-    expect(JSON.stringify(items)).toEqual(JSON.stringify([Item({ name: 'Conjured', sellIn: 1, quality: 1 }),Item({ name: 'anything', sellIn: 5, quality: 4 })]));
+    expect(JSON.stringify(items)).toEqual(JSON.stringify([{ name: 'Conjured', sellIn: 1, quality: 1 },{ name: 'anything', sellIn: 5, quality: 4 }]));
+  });
+
+  it("test two:", function() {
+
+    const gildedRose = new Shop([ new Item('Sulfuras, Hand of Ragnaros', 0, 80) , new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20) , new Item('Aged Brie', 12, 10) , new Item('Conjured', 32, 43), new Item('anything', 7, 2) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(JSON.stringify(items)).toEqual(JSON.stringify([{ name: 'Sulfuras, Hand of Ragnaros', sellIn: 0, quality: 80 },{ name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 14, quality: 21 },{ name: 'Aged Brie', sellIn: 11, quality: 11 },{ name: 'Conjured', sellIn: 31, quality: 41 },{ name: 'anything', sellIn: 6, quality: 1 }]));
+  });
+
+  it("test three:", function() {
+
+    const gildedRose = new Shop([ new Item('Sulfuras, Hand of Ragnaros', 5, 80) , new Item('Backstage passes to a TAFKAL80ETC concert', 10, 20) , new Item('Aged Brie', 0, 10) , new Item('Conjured', 0, 43), new Item('anything', 0, 2) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(JSON.stringify(items)).toEqual(JSON.stringify([{ name: 'Sulfuras, Hand of Ragnaros', sellIn: 0, quality: 80 },{ name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 9, quality: 22 },{ name: 'Aged Brie', sellIn: -1, quality: 11 },{ name: 'Conjured', sellIn: -1, quality: 39 },{ name: 'anything', sellIn: -1, quality: 0 }]));
+  });
+
+  it("test four:", function() {
+
+    const gildedRose = new Shop([ new Item('Sulfuras, Hand of Ragnaros', 0, 60) , new Item('Backstage passes to a TAFKAL80ETC concert', 5, 20) , new Item('Aged Brie', 4, 55) , new Item('Conjured', 2, 54), new Item('anything', 3, 53) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(JSON.stringify(items)).toEqual(JSON.stringify([{ name: 'Sulfuras, Hand of Ragnaros', sellIn: 0, quality: 80 },{ name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 4, quality: 23 },{ name: 'Aged Brie', sellIn: 3, quality: 50 },{ name: 'Conjured', sellIn: 1, quality: 48 },{ name: 'anything', sellIn: 2, quality: 49 }]));
+  });
+
+  it("test five:", function() {
+
+    const gildedRose = new Shop([ new Item('Sulfuras, Hand of Ragnaros', 0, 88) , new Item('Backstage passes to a TAFKAL80ETC concert', 0, 43) , new Item('Aged Brie', 4, -1) , new Item('Conjured', 2, -3), new Item('anything', 3, -7) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(JSON.stringify(items)).toEqual(JSON.stringify([{ name: 'Sulfuras, Hand of Ragnaros', sellIn: 0, quality: 80 },{ name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: -1, quality:0 },{ name: 'Aged Brie', sellIn: 3, quality: 1 },{ name: 'Conjured', sellIn: 1, quality: 0 },{ name: 'anything', sellIn: 2, quality: 0 }]));
+  });
+
+  it("test six:", function() {
+
+    const gildedRose = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 12, -2) , new Item('Aged Brie', 4, -1) , new Item('Conjured', 2, -3), new Item('anything', 3, -7) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(JSON.stringify(items)).toEqual(JSON.stringify([{ name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 11, quality:1 },{ name: 'Aged Brie', sellIn: 3, quality: 1 },{ name: 'Conjured', sellIn: 1, quality: 0 },{ name: 'anything', sellIn: 2, quality: 0 }]));
+  });
+
+  it("test seven:", function() {
+
+    const gildedRose = new Shop([ new Item('Backstage passes to a TAFKAL80ETC concert', 8, 55) , new Item('Conjured', 2, -3), new Item('anything', 3, -7) ]);
+    const items = gildedRose.updateQuality();
+
+    expect(JSON.stringify(items)).toEqual(JSON.stringify([{ name: 'Backstage passes to a TAFKAL80ETC concert', sellIn: 7, quality:50 },{ name: 'Conjured', sellIn: 1, quality: 0 },{ name: 'anything', sellIn: 2, quality: 0 }]));
   });
 
 });

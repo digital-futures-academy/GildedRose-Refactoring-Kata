@@ -1,9 +1,18 @@
 # Mousinho gilded rose challenge
 My current attempt to refactor the guilded rose problem. Practice at analysing legacy code, creating a domain model, test driven development, and OOP principles.
 
+## Directory Information
+Within the `src` folder the original Shop class and Item class have been split into two files `item.js` and `shop.js`. There is also an `itemDict.js` with key value pairs of the item names and their corresponding itemUpdate class. Within the [itemUpdateClasses](https://github.com/AntMousinho/gilded-rose-refactoring-challenge/tree/master/js-jasmine/src/itemUpdateClasses) folder and 5 different classes, all with an `update()` function that contain the functionality to update each different item type. 
+
+Each `itemUpdate` class has been individually tested, found within the `spec` folder, and the `Shop` class has been tested in alignment with the original criteria. These shop specs were the first code that was written, it passed all the specs with the original code and was constantly checked when refactoring the Shop class.
+
 ## Quick setup
 ```
 $ git clone git@github.com:AntMousinho/mousinho-gilded-rose-challenge.git
+
+# Move to js-jasmine directory
+$ cd js-jasmine
+
 $ npm install
 ```
 
@@ -11,6 +20,10 @@ $ npm install
 
 ## To run tests
 ```
+# Move to js-jasmine directory
+$ cd js-jasmine
+
+# Run Tests
 $ npx jasmine
 # or
 $ npm test
@@ -19,6 +32,8 @@ $ npm test
 <p>&nbsp;</p>
 
 ## Running the programme
+To access this directory and run the programme correctly first thing to do is move into the 'js-jasmine' directory.
+
 Within `index.js` there is an example already set up with an item list that can be tested through the command line with the number of days you want to pass.
 ```
 $ node index.js [number of days]

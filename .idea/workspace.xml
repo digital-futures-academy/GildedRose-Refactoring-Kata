@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ed0ad27f-4ed2-4fa4-84f9-27311acd1c68" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/spec/shop.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/agedBrie.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/backstagePass.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/changeQuality.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/checkValid.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/regularItem.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/support/jasmine.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/agedBrie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/backstagePass.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/changeQuality.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/checkValid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/item.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/regularItem.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/shop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/sulfuras.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qkFCIiBy8b8xBcs69E3wEeECLX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed0ad27f-4ed2-4fa4-84f9-27311acd1c68" name="Default Changelist" comment="" />
+      <created>1617615552425</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617615552425</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="349" y="169" key="com.intellij.ide.util.TipDialog" timestamp="1617615558009">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="349" y="169" key="com.intellij.ide.util.TipDialog/0.0.1280.680/1920.0.1536.824@0.0.1280.680" timestamp="1617615558009" />
+  </component>
+</project>

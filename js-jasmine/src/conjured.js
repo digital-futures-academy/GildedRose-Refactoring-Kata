@@ -1,9 +1,9 @@
-class AgedBrie {
-    constructor(item) {
+class Conjured {
+    constructor(item){
         this.item = item;
     }
-    updateQuality() {
-        this.item.quality++;
+    updateQuality(){
+        this.item.quality -= 2;
         if (this.item.quality > 50) {this.item.quality = 50};
         if (this.item.quality < 0) {this.item.quality = 0};
         this.item.sellIn--;
@@ -11,4 +11,4 @@ class AgedBrie {
     }
 }
 
-module.exports = AgedBrie
+module.exports = Conjured

@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed0ad27f-4ed2-4fa4-84f9-27311acd1c68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/spec/shop.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/agedBrie.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/backstagePass.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/changeQuality.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/checkValid.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/regularItem.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/spec/support/jasmine.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/agedBrie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/backstagePass.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/changeQuality.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/checkValid.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/item.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/regularItem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/shop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-jasmine/js-jasmine/src/sulfuras.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

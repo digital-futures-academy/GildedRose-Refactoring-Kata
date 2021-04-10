@@ -1,4 +1,3 @@
-// const Item = require('./item.js');
 class AgedBrie {
     constructor(item) {
         this.item = item;
@@ -14,6 +13,3 @@ class AgedBrie {
 
 module.exports = AgedBrie
 
-// let aged = new AgedBrie(['Aged Brie', 5, 10])
-// let test = aged.updateQuality()
-// console.log(test)

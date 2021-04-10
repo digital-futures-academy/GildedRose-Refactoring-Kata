@@ -11,7 +11,7 @@ class Shop {
       const newItem = new itemClass(item)
       newItem.updateQuality()
     })
-    return this.items
+    return this.items;
   }
 }
 

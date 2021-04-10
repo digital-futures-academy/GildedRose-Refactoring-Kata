@@ -23,19 +23,19 @@ describe("AgedBrie update quality", function() {
 
 describe("AgedBrie sell in", function() {
     it("sell in decreases by one (positive)", function() {
-        agedbrie = new AgedBrie(new Item("a regular item", 8, 18));
+        agedbrie = new AgedBrie(new Item("Aged Brie", 8, 18));
         result = agedbrie.updateQuality();
         expect(result.sellIn).toEqual(7);
     });
 
     it("sell in decreases by one (negative)", function() {
-        agedbrie = new AgedBrie(new Item("a regular item", -9, 30));
+        agedbrie = new AgedBrie(new Item("Aged Brie", -9, 30));
         result = agedbrie.updateQuality();
         expect(result.sellIn).toEqual(-10);
     });
 
     it("sell in decreases by one (zero)", function() {
-        agedbrie = new AgedBrie(new Item("a regular item", 0, 10));
+        agedbrie = new AgedBrie(new Item("Aged Brie", 0, 10));
         result = agedbrie.updateQuality();
         expect(result.sellIn).toEqual(-1);
     });

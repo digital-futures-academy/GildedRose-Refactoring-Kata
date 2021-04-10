@@ -1,6 +1,9 @@
 const Item = require('../src/item.js');
 const Shop = require('../src/shop.js');
 
+let shop;
+let items;
+
 describe("shop class", function() {
     it("can update aged brie quality", function() {
         let shop = new Shop([new Item("Aged Brie", -5, 20)]);
@@ -9,8 +12,8 @@ describe("shop class", function() {
     });
 
     it("can update aged brie sell in", function() {
-        let shop = new Shop([new Item("Aged Brie", 30, 20)]);
-        let items = shop.update();
+        shop = new Shop([new Item("Aged Brie", 30, 20)]);
+        items = shop.update();
         expect(items[0].sellIn).toEqual(29);
     });
 

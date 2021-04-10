@@ -12,7 +12,7 @@ Use ```npx jasmine``` or ```npm test``` to run the tests
 ## Usage
 In shop.js create a new instance of shop and pass in the items you wish to update, for example:
 ```javascript
-let shop = new Shop([new('regular item', 8, 15), new('Aged Brie', 3, 25), new Item('Conjured', 5, 9)])
+let shop = new Shop([new Item('regular item', 8, 15), new Item('Aged Brie', 3, 25), new Item('Conjured', 5, 9)])
 ```
 Then call the ```update()``` function on ```shop``` and log it to the console to see how the sellIn and quality properties after one day:
 ```javascript

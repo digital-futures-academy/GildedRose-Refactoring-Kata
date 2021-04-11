@@ -62,13 +62,18 @@ describe("Gilded Rose", function() {
   });
 
   it("updating hand of ragnaros when none are selling", function() {
-    let test = new Shop([ new Item("Sulfuras, Hand of Ragnaros", 0, 10) ]);
-    expect(test.updateQuality()).toEqual([new Item("Sulfuras, Hand of Ragnaros", 0, 10) ]);
+    let test = new Shop([ new Item("Sulfuras, Hand of Ragnaros", -1, 10) ]);
+    expect(test.updateQuality()).toEqual([new Item("Sulfuras, Hand of Ragnaros", -1, 11) ]);
   });
 
   it("updating a normal item when none are selling", function() {
     let test = new Shop([ new Item("random item", 0, 10) ]);
     expect(test.updateQuality()).toEqual([new Item("random item", -1, 8) ]);
+  });
+
+  it("updating multiple items", function() {
+    let test = new Shop([ new Item("random item", 5, 10), new Item("random item", 5, 10), new Item("random item", 5, 10) ]);
+    expect(test.updateQuality()).toEqual([new Item("random item", 4, 9), new Item("random item", 4, 9), new Item("random item", 4, 9) ]);
   });
 
 });

@@ -15,9 +15,7 @@ class Shop {
 
   updateQuality() {
     let updatestock = new updater(this.items)
-    updatestock.normalqualitysetting()
-    updatestock.updatesellin()
-    updatestock.nonsellingquality()
+    updatestock.update()
     return this.items;
   }
 }

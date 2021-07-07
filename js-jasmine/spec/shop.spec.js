@@ -49,8 +49,8 @@ describe("Gilded Rose", function() {
     expect(updatedItems[7].sellIn).toEqual(4)
     expect(updatedItems[7].quality).toEqual(50)
 
-    expect(conjured.sellIn).toEqual(2)
-    expect(conjured.quality).toEqual(4)
+    expect(updatedItems[8].sellIn).toEqual(2)
+    expect(updatedItems[8].quality).toEqual(4)
   });
 
   it("Day thirty", function() {
@@ -102,8 +102,8 @@ describe("Gilded Rose", function() {
     expect(updatedItems[7].sellIn).toEqual(-25)
     expect(updatedItems[7].quality).toEqual(0)
 
-    expect(conjured.sellIn).toEqual(-27)
-    expect(conjured.quality).toEqual(0)
+    expect(updatedItems[8].sellIn).toEqual(-27)
+    expect(updatedItems[8].quality).toEqual(0)
   });
 
 });

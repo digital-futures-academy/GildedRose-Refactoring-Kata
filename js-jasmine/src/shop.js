@@ -1,25 +1,25 @@
-const AgedBrie = require("./agedBrie.js")
-const BackstagePass = require("./backstagePass.js")
-const Conjured = require("./conjured.js")
-const Sulfuras = require("./sulfuras.js")
-const StandardItem = require("./standardItem.js")
+const AgedBrie = require('./agedBrie.js')
+const BackstagePass = require('./backstagePass.js')
+const Conjured = require('./conjured.js')
+const Sulfuras = require('./sulfuras.js')
+const StandardItem = require('./standardItem.js')
 
 const SpecialItems = {
-  "Aged Brie": AgedBrie,
-  "Backstage passes to a TAFKAL80ETC concert": BackstagePass,
-  "Conjured Mana Cake": Conjured,
-  "Sulfuras, Hand of Ragnaros": Sulfuras
+  'Aged Brie': AgedBrie,
+  'Backstage passes to a TAFKAL80ETC concert': BackstagePass,
+  'Conjured Mana Cake': Conjured,
+  'Sulfuras, Hand of Ragnaros': Sulfuras
 }
 
 class Shop {
-  constructor(items=[]){
+  constructor (items = []) {
     this.items = items.map(item => {
-      const itemClass = SpecialItems[item.name] || StandardItem
-      return new itemClass(item)
-    });
+      const ItemClass = SpecialItems[item.name] || StandardItem
+      return new ItemClass(item)
+    })
   }
 
-  updateQuality() {
+  updateQuality () {
     this.items.forEach(item => item.update())
     return this.items
   }

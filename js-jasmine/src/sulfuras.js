@@ -1,11 +1,11 @@
 class Sulfuras {
-  constructor(item) {
+  constructor (item) {
     this.name = item.name
     this.quality = item.quality
     this.sellIn = item.sellIn
   }
 
-  update() {
+  update () {
 
   }
 }

@@ -24,18 +24,17 @@ describe("Gilded Rose", function() {
   ]
   it("Day one", function() {
 
-
     const gildedRose = new Shop(items);
     const updatedItems = gildedRose.updateQuality();
 
-    expect(dexVest.sellIn).toEqual(9)
-    expect(dexVest.quality).toEqual(19)
+    expect(updatedItems[0].sellIn).toEqual(9)
+    expect(updatedItems[0].quality).toEqual(19)
 
     expect(updatedItems[1].sellIn).toEqual(1)
     expect(updatedItems[1].quality).toEqual(1)
 
-    expect(elixirMongoose.sellIn).toEqual(4)
-    expect(elixirMongoose.quality).toEqual(6)
+    expect(updatedItems[2].sellIn).toEqual(4)
+    expect(updatedItems[2].quality).toEqual(6)
 
     expect(sulfuras1.sellIn).toEqual(0)
     expect(sulfuras1.quality).toEqual(80)
@@ -81,14 +80,14 @@ describe("Gilded Rose", function() {
     }
     const updatedItems = gildedRose.updateQuality();
 
-    expect(dexVest.sellIn).toEqual(-20)
-    expect(dexVest.quality).toEqual(0)
+    expect(updatedItems[0].sellIn).toEqual(-20)
+    expect(updatedItems[0].quality).toEqual(0)
 
     expect(updatedItems[1].sellIn).toEqual(-28)
     expect(updatedItems[1].quality).toEqual(50)
 
-    expect(elixirMongoose.sellIn).toEqual(-25)
-    expect(elixirMongoose.quality).toEqual(0)
+    expect(updatedItems[2].sellIn).toEqual(-25)
+    expect(updatedItems[2].quality).toEqual(0)
 
     expect(sulfuras1.sellIn).toEqual(0)
     expect(sulfuras1.quality).toEqual(80)

@@ -1,6 +1,7 @@
 const AgedBrie = require("./agedBrie.js")
 const BackstagePass = require("./backstagePass.js")
 const Conjured = require("./conjured.js")
+const StandardItem = require("./standardItem.js")
 
 class Shop {
   constructor(items=[]){
@@ -12,7 +13,7 @@ class Shop {
       } else if (item.name === 'Conjured Mana Cake'){
         return new Conjured(item)
       } else {
-        return item
+        return new StandardItem(item)
       }
     });
   }
@@ -23,9 +24,7 @@ class Shop {
       if (this.items[i].name === 'Aged Brie') { this.items[i].update() }
       if (this.items[i].name === 'Backstage passes to a TAFKAL80ETC concert') { this.items[i].update() }
       if (this.items[i].name != 'Sulfuras, Hand of Ragnaros' && this.items[i].name !== 'Aged Brie' && this.items[i].name !== 'Backstage passes to a TAFKAL80ETC concert' && this.items[i].name !== 'Conjured Mana Cake') {
-        if (this.items[i].quality > 0) { this.items[i].quality--; }
-        this.items[i].sellIn--;
-        if (this.items[i].sellIn < 0 && this.items[i].quality > 0) { this.items[i].quality--; }
+        this.items[i].update()
       }
     }
 

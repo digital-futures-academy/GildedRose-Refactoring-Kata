@@ -36,10 +36,10 @@ describe("Gilded Rose", function() {
     expect(updatedItems[2].sellIn).toEqual(4)
     expect(updatedItems[2].quality).toEqual(6)
 
-    expect(sulfuras1.sellIn).toEqual(0)
-    expect(sulfuras1.quality).toEqual(80)
-    expect(sulfuras2.sellIn).toEqual(-1)
-    expect(sulfuras2.quality).toEqual(80)
+    expect(updatedItems[3].sellIn).toEqual(0)
+    expect(updatedItems[3].quality).toEqual(80)
+    expect(updatedItems[4].sellIn).toEqual(-1)
+    expect(updatedItems[4].quality).toEqual(80)
 
     expect(updatedItems[5].sellIn).toEqual(14)
     expect(updatedItems[5].quality).toEqual(21)
@@ -89,10 +89,10 @@ describe("Gilded Rose", function() {
     expect(updatedItems[2].sellIn).toEqual(-25)
     expect(updatedItems[2].quality).toEqual(0)
 
-    expect(sulfuras1.sellIn).toEqual(0)
-    expect(sulfuras1.quality).toEqual(80)
-    expect(sulfuras2.sellIn).toEqual(-1)
-    expect(sulfuras2.quality).toEqual(80)
+    expect(updatedItems[3].sellIn).toEqual(0)
+    expect(updatedItems[3].quality).toEqual(80)
+    expect(updatedItems[4].sellIn).toEqual(-1)
+    expect(updatedItems[4].quality).toEqual(80)
 
     expect(updatedItems[5].sellIn).toEqual(-15)
     expect(updatedItems[5].quality).toEqual(0)

@@ -1,6 +1,7 @@
 const AgedBrie = require("./agedBrie.js")
 const BackstagePass = require("./backstagePass.js")
 const Conjured = require("./conjured.js")
+const Sulfuras = require("./sulfuras.js")
 const StandardItem = require("./standardItem.js")
 
 class Shop {
@@ -12,6 +13,8 @@ class Shop {
         return new BackstagePass(item)
       } else if (item.name === 'Conjured Mana Cake'){
         return new Conjured(item)
+      } else if (item.name === 'Sulfuras, Hand of Ragnaros'){
+        return new Sulfuras(item)
       } else {
         return new StandardItem(item)
       }

@@ -4,20 +4,18 @@ const Conjured = require("./conjured.js")
 const Sulfuras = require("./sulfuras.js")
 const StandardItem = require("./standardItem.js")
 
+const SpecialItems = {
+  "Aged Brie": AgedBrie,
+  "Backstage passes to a TAFKAL80ETC concert": BackstagePass,
+  "Conjured Mana Cake": Conjured,
+  "Sulfuras, Hand of Ragnaros": Sulfuras
+}
+
 class Shop {
   constructor(items=[]){
     this.items = items.map(item => {
-      if (item.name === "Aged Brie") {
-        return new AgedBrie(item)
-      } else if (item.name === 'Backstage passes to a TAFKAL80ETC concert'){
-        return new BackstagePass(item)
-      } else if (item.name === 'Conjured Mana Cake'){
-        return new Conjured(item)
-      } else if (item.name === 'Sulfuras, Hand of Ragnaros'){
-        return new Sulfuras(item)
-      } else {
-        return new StandardItem(item)
-      }
+      const itemClass = SpecialItems[item.name] || StandardItem
+      return new itemClass(item)
     });
   }
 

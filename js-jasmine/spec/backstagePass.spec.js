@@ -1,35 +1,29 @@
-const Shop = require('../src/shop.js');
+const BackstagePass = require('../src/backstagePass.js');
 const Item = require('../src/item.js');
 
 describe("BackStage Pass", function() {
 
   it("quality increase by 2", function() {
-    const backstage1 = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 5)
-    const items = [backstage1]
-    const gildedRose = new Shop(items);
-    gildedRose.updateQuality();
+    const backstagePass = new BackstagePass(new Item("Backstage passes to a TAFKAL80ETC concert", 10, 5))
+    backstagePass.update();
 
-    expect(backstage1.sellIn).toEqual(9)
-    expect(backstage1.quality).toEqual(7)
+    expect(backstagePass.sellIn).toEqual(9)
+    expect(backstagePass.quality).toEqual(7)
   })
 
   it("quality increase by 3", function() {
-    const backstage1 = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 5)
-    const items = [backstage1]
-    const gildedRose = new Shop(items);
-    gildedRose.updateQuality();
+    const backstagePass = new BackstagePass(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 5))
+    backstagePass.update();
 
-    expect(backstage1.sellIn).toEqual(4)
-    expect(backstage1.quality).toEqual(8)
+    expect(backstagePass.sellIn).toEqual(4)
+    expect(backstagePass.quality).toEqual(8)
   })
 
   it("quality set to 0", function() {
-    const backstage1 = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 5)
-    const items = [backstage1]
-    const gildedRose = new Shop(items);
-    gildedRose.updateQuality();
+    const backstagePass = new BackstagePass(new Item("Backstage passes to a TAFKAL80ETC concert", 0, 5))
+    backstagePass.update();
 
-    expect(backstage1.sellIn).toEqual(-1)
-    expect(backstage1.quality).toEqual(0)
+    expect(backstagePass.sellIn).toEqual(-1)
+    expect(backstagePass.quality).toEqual(0)
   })
 })

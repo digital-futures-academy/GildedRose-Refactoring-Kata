@@ -1,16 +1,16 @@
-const Shop = require('../src/shop.js');
-const Item = require('../src/item.js');
+const Shop = require('../src/shop.js')
+const Item = require('../src/item.js')
 
-describe("Gilded Rose", function() {
-  const dexVest = new Item("+5 Dexterity Vest", 10, 20)
-  const agedBrie = new Item("Aged Brie", 2, 0)
-  const elixirMongoose = new Item("Elixir of the Mongoose", 5, 7)
-  const sulfuras1 = new Item("Sulfuras, Hand of Ragnaros", 0, 80)
-  const sulfuras2 = new Item("Sulfuras, Hand of Ragnaros", -1, 80)
-  const backstage1 = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20)
-  const backstage2 = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)
-  const backstage3 = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)
-  const conjured = new Item("Conjured Mana Cake", 3, 6)
+describe('Gilded Rose', function () {
+  const dexVest = new Item('+5 Dexterity Vest', 10, 20)
+  const agedBrie = new Item('Aged Brie', 2, 0)
+  const elixirMongoose = new Item('Elixir of the Mongoose', 5, 7)
+  const sulfuras1 = new Item('Sulfuras, Hand of Ragnaros', 0, 80)
+  const sulfuras2 = new Item('Sulfuras, Hand of Ragnaros', -1, 80)
+  const backstage1 = new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20)
+  const backstage2 = new Item('Backstage passes to a TAFKAL80ETC concert', 10, 49)
+  const backstage3 = new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49)
+  const conjured = new Item('Conjured Mana Cake', 3, 6)
   const items = [
     dexVest,
     agedBrie,
@@ -22,10 +22,9 @@ describe("Gilded Rose", function() {
     backstage3,
     conjured
   ]
-  it("Day one", function() {
-
-    const gildedRose = new Shop(items);
-    const updatedItems = gildedRose.updateQuality();
+  it('Day one', function () {
+    const gildedRose = new Shop(items)
+    const updatedItems = gildedRose.updateQuality()
 
     expect(updatedItems[0].sellIn).toEqual(9)
     expect(updatedItems[0].quality).toEqual(19)
@@ -50,18 +49,18 @@ describe("Gilded Rose", function() {
 
     expect(updatedItems[8].sellIn).toEqual(2)
     expect(updatedItems[8].quality).toEqual(4)
-  });
+  })
 
-  it("Day thirty", function() {
-    const dexVest = new Item("+5 Dexterity Vest", 10, 20)
-    const agedBrie = new Item("Aged Brie", 2, 0)
-    const elixirMongoose = new Item("Elixir of the Mongoose", 5, 7)
-    const sulfuras1 = new Item("Sulfuras, Hand of Ragnaros", 0, 80)
-    const sulfuras2 = new Item("Sulfuras, Hand of Ragnaros", -1, 80)
-    const backstage1 = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20)
-    const backstage2 = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)
-    const backstage3 = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49)
-    const conjured = new Item("Conjured Mana Cake", 3, 6)
+  it('Day thirty', function () {
+    const dexVest = new Item('+5 Dexterity Vest', 10, 20)
+    const agedBrie = new Item('Aged Brie', 2, 0)
+    const elixirMongoose = new Item('Elixir of the Mongoose', 5, 7)
+    const sulfuras1 = new Item('Sulfuras, Hand of Ragnaros', 0, 80)
+    const sulfuras2 = new Item('Sulfuras, Hand of Ragnaros', -1, 80)
+    const backstage1 = new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20)
+    const backstage2 = new Item('Backstage passes to a TAFKAL80ETC concert', 10, 49)
+    const backstage3 = new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49)
+    const conjured = new Item('Conjured Mana Cake', 3, 6)
     const items = [
       dexVest,
       agedBrie,
@@ -74,11 +73,11 @@ describe("Gilded Rose", function() {
       conjured
     ]
 
-    const gildedRose = new Shop(items);
+    const gildedRose = new Shop(items)
     for (let i = 0; i < 29; i++) {
-       gildedRose.updateQuality()
+      gildedRose.updateQuality()
     }
-    const updatedItems = gildedRose.updateQuality();
+    const updatedItems = gildedRose.updateQuality()
 
     expect(updatedItems[0].sellIn).toEqual(-20)
     expect(updatedItems[0].quality).toEqual(0)
@@ -103,6 +102,5 @@ describe("Gilded Rose", function() {
 
     expect(updatedItems[8].sellIn).toEqual(-27)
     expect(updatedItems[8].quality).toEqual(0)
-  });
-
-});
+  })
+})

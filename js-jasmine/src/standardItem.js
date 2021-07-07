@@ -1,10 +1,6 @@
-class StandardItem {
-  constructor (item) {
-    this.name = item.name
-    this.quality = item.quality
-    this.sellIn = item.sellIn
-  }
+const BaseItem = require('./baseItem.js')
 
+class StandardItem extends BaseItem {
   update () {
     this.sellIn--
     if (this.quality > 0) { this.quality-- }

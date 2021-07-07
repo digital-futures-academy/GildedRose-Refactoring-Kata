@@ -1,10 +1,6 @@
-class Sulfuras {
-  constructor (item) {
-    this.name = item.name
-    this.quality = item.quality
-    this.sellIn = item.sellIn
-  }
+const BaseItem = require('./baseItem.js')
 
+class Sulfuras extends BaseItem {
   update () {
 
   }

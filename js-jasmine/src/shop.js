@@ -20,8 +20,7 @@ class Shop {
   }
 
   updateQuality () {
-    this.items.forEach(item => item.update())
-    return this.items
+    this.items.map(item => item.update())
   }
 }
 

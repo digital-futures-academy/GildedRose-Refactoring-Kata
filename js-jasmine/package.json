@@ -1,39 +1,16 @@
 {
-  "name": "gilded-rose-kata",
+  "name": "js-jasmine",
   "version": "1.0.0",
-  "description": "Gilded Rose kata in Javascript with Jasmine",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/emilybache/GildedRose-Refactoring-Kata.git"
-  },
-  "keywords": [
-    "kata",
-    "refactor",
-    "gilded-rose"
-  ],
-  "license": "MIT",
-  "private": true,
-  "bugs": {
-    "url": "https://github.com/emilybache/GildedRose-Refactoring-Kata/issues"
-  },
-  "homepage": "https://github.com/emilybache/GildedRose-Refactoring-Kata",
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "1.7.0",
-    "babel-register": "^6.26.0",
-    "jasmine": "^3.2.0"
+    "eslint": "^7.23.0",
+    "jasmine": "^3.7.0"
   },
-  "babel": {
-    "presets": [
-      [
-        "env", {
-          "targets": { "node": "current" }
-        }
-      ]
-    ],
-    "plugins": []
-  }
+  "dependencies": {}
 }
